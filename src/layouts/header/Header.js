@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import HeaderSearchForm from "../../components/HeaderSearchForm";
 import Sidebar from "../../components/Sidebar";
+import { sharedContact } from "../../data/locations";
 import {
   About,
   Contact,
@@ -22,10 +23,16 @@ const Header = () => {
   return (
     <header id="header" className="d-none d-xl-block">
       <div className="top-bar">
-        <div className="inner jus-ct">
-          <p className="clr-pri-1">
-            Working Jours : Sun - Friday, 08:00 am - 05:00 pm
-          </p>
+        <div className="inner jus-ct top-bar-contact">
+          <a href={`tel:${sharedContact.phoneTel}`} className="clr-pri-1">
+            <i className="fal fa-phone" aria-hidden="true" /> {sharedContact.phone}
+          </a>
+          <a href={`mailto:${sharedContact.email}`} className="clr-pri-1">
+            <i className="far fa-envelope" aria-hidden="true" /> {sharedContact.email}
+          </a>
+          <Link href="/location">
+            <a className="clr-pri-1 top-bar-locations">Our Locations</a>
+          </Link>
         </div>
       </div>
       <div id="site-header" className="">
@@ -55,7 +62,7 @@ const Header = () => {
                       <li className="menu-item">
                         <Franchise />
                       </li>
-                      <li className="menu-item">
+                      <li className="menu-item menu-item-has-children">
                         <Locations />
                       </li>
                       <li className="menu-item">
@@ -142,7 +149,11 @@ const Header = () => {
                       </svg>
                       <ul>
                         <li className="clr-pri-2">Hotline</li>
-                        <li className="clr-pri-2">+012 (345) 678</li>
+                        <li className="clr-pri-2">
+                          <a href={`tel:${sharedContact.phoneTel}`} className="clr-pri-2">
+                            {sharedContact.phone}
+                          </a>
+                        </li>
                       </ul>
                     </div>
                   </div>

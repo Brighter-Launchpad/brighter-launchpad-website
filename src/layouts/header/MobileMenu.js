@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { useState } from "react";
+import { sharedContact } from "../../data/locations";
 import {
   About,
   Contact,
   Faq,
   Franchise,
-  Locations,
   ProgramsLink,
 } from "./Menus";
 
@@ -14,10 +14,16 @@ const MobileMenu = () => {
   return (
     <header id="header" className="d-block d-xl-none">
       <div className="top-bar">
-        <div className="inner jus-ct">
-          <p className="clr-pri-1">
-            Working Jours : Sun - Friday, 08:00 am - 05:00 pm
-          </p>
+        <div className="inner jus-ct top-bar-contact">
+          <a href={`tel:${sharedContact.phoneTel}`} className="clr-pri-1">
+            <i className="fal fa-phone" aria-hidden="true" /> Call
+          </a>
+          <a href={`mailto:${sharedContact.email}`} className="clr-pri-1">
+            <i className="far fa-envelope" aria-hidden="true" /> Email
+          </a>
+          <Link href="/location">
+            <a className="clr-pri-1 top-bar-locations">Our Locations</a>
+          </Link>
         </div>
       </div>
       <div id="site-header" className="">
@@ -123,7 +129,11 @@ const MobileMenu = () => {
                       </svg>
                       <ul>
                         <li className="clr-pri-2">Hotline</li>
-                        <li className="clr-pri-2">+012 (345) 678</li>
+                        <li className="clr-pri-2">
+                          <a href={`tel:${sharedContact.phoneTel}`} className="clr-pri-2">
+                            {sharedContact.phone}
+                          </a>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -148,7 +158,9 @@ const MobileMenu = () => {
               <Franchise />
             </li>
             <li className="menu-item">
-              <Locations />
+              <Link href="/location">
+                <a>Location</a>
+              </Link>
             </li>
             <li className="menu-item">
               <Faq />

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Fragment } from "react";
+import { locations } from "../../data/locations";
 
 export const Home = () => (
   <Fragment>
@@ -103,5 +104,20 @@ export const About = () => <Link href="/about">About</Link>;
 export const Contact = () => <Link href="/contact">CONTACTS</Link>;
 export const ProgramsLink = () => <Link href="/program">Programs</Link>;
 export const Franchise = () => <Link href="/franchise">Franchise</Link>;
-export const Locations = () => <Link href="/locations">Locations</Link>;
 export const Faq = () => <Link href="/faq">FAQ</Link>;
+export const Locations = () => (
+  <Fragment>
+    <Link href="/location">
+      <a>Location</a>
+    </Link>
+    <ul className="sub-menu">
+      {locations.map((location) => (
+        <li key={location.id}>
+          <Link href={location.detailUrl}>
+            <a>{location.navName}</a>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </Fragment>
+);

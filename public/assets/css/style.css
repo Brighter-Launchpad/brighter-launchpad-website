@@ -1163,6 +1163,16 @@ a:focus {
     line-height: 105px;
 }
 
+/* Inner-page header nav sits in the same row as the logo and is
+   absolutely positioned at a fixed percentage from the left, so an
+   unconstrained full-size logo overlaps it. Constrain the logo here
+   only (home/location headers stack the logo above the nav, so they
+   don't need this). */
+.inner-page #site-logo img {
+    max-height: 54px;
+    width: auto;
+}
+
 /* header-right */
 .header-right {
     justify-content: space-between;

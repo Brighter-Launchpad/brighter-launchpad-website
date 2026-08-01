@@ -2,182 +2,79 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { themesflatcarousel } from "../SliderProps";
 
+const programs = [
+  {
+    image: "assets/images/common/sc-program1.jpg",
+    age: "6 weeks – 12 months",
+    title: "Infant Care",
+    desc: "Low ratios, primary caregiving, and daily app updates from the very first drop-off.",
+  },
+  {
+    image: "assets/images/common/sc-program2.jpg",
+    age: "1 – 2 years",
+    title: "Toddler Program",
+    desc: "Language-rich rooms built for first words, first steps, and first friendships.",
+  },
+  {
+    image: "assets/images/common/sc-program3.jpg",
+    age: "2 – 4 years",
+    title: "Preschool",
+    desc: "Play-based learning with individual support plans — every child, one curriculum.",
+  },
+  {
+    image: "assets/images/common/sc-program4.jpg",
+    age: "4 – 5 years",
+    title: "Pre-K Readiness",
+    desc: "Kindergarten-ready skills without kindergarten pressure. Confidence first.",
+  },
+  {
+    image: "assets/images/common/sc-program5.jpg",
+    age: "5 – 12 years",
+    title: "After-School Care",
+    desc: "Homework help, clubs, and downtime for school-age kids of working parents.",
+  },
+  {
+    image: "assets/images/common/sc-program6.jpg",
+    age: "Seasonal",
+    title: "Summer Camp",
+    desc: "Weekly themed camps that keep summer structured, social, and outside.",
+  },
+];
+
 const LatestProgramSlider = () => {
   return (
     <Swiper {...themesflatcarousel} className="owl-carousel owl-theme none">
       <div className="swiper-wrapper">
-        <SwiperSlide>
-          <div
-            data-dot=""
-            className="item-courses wow fadeIn animated"
-            data-wow-delay="0.3ms"
-            data-wow-duration="1300ms"
-          >
-            <div className="box-feature">
-              <img
-                src="assets/images/common/slider-courses-1.jpg"
-                alt="Image"
-              />
-            </div>
-            <div className="box-content">
-              <div className="box-wrap">
-                <h4 className="title">
-                  <Link href="/classe-details">
-                    <a>Drawing &amp; Painting</a>
-                  </Link>
-                </h4>
-                <p className="sub f-mulish">
-                  Consectetur adipiscing elit seds eiusmo tempor incide
-                </p>
+        {programs.map((pg) => (
+          <SwiperSlide key={pg.title}>
+            <div
+              data-dot=""
+              className="item-courses wow fadeIn animated"
+              data-wow-delay="0.3ms"
+              data-wow-duration="1300ms"
+            >
+              <div className="box-feature">
+                <img src={pg.image} alt={pg.title} />
               </div>
-              <ul>
-                <li>
-                  <i className="far fa-user-graduate clr-pri-5" />
-                  4-6 Years
-                </li>
-                <li>
-                  <i className="far fa-book clr-pri-6" />5 Class
-                </li>
-                <li>
-                  <i className="fal fa-usd-circle clr-pri-3" />
-                  $259.95
-                </li>
-                <li>
-                  <i className="far fa-clock clr-pri-8" />6 Months
-                </li>
-              </ul>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            data-dot=""
-            className="item-courses wow fadeIn animated"
-            data-wow-delay="0.3ms"
-            data-wow-duration="1300ms"
-          >
-            <div className="box-feature">
-              <img
-                src="assets/images/common/slider-courses-2.jpg"
-                alt="Image"
-              />
-            </div>
-            <div className="box-content">
-              <div className="box-wrap">
-                <h4 className="title">
-                  <Link href="/classe-details">
-                    <a>Computer Learning</a>
-                  </Link>
-                </h4>
-                <p className="sub f-mulish">
-                  Consectetur adipiscing elit seds eiusmo tempor incide
-                </p>
+              <div className="box-content">
+                <div className="box-wrap">
+                  <h4 className="title">
+                    <Link href="/program-details">
+                      <a>{pg.title}</a>
+                    </Link>
+                  </h4>
+                  <p className="sub f-mulish">{pg.desc}</p>
+                </div>
+                <ul>
+                  <li>
+                    <i className="far fa-user-graduate clr-pri-5" />
+                    {pg.age}
+                  </li>
+                </ul>
               </div>
-              <ul>
-                <li>
-                  <i className="far fa-user-graduate clr-pri-5" />
-                  4-6 Years
-                </li>
-                <li>
-                  <i className="far fa-book clr-pri-6" />5 Class
-                </li>
-                <li>
-                  <i className="fal fa-usd-circle clr-pri-3" />
-                  $259.95
-                </li>
-                <li>
-                  <i className="far fa-clock clr-pri-8" />6 Months
-                </li>
-              </ul>
             </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            data-dot=""
-            className="item-courses wow fadeIn animated"
-            data-wow-delay="0.3ms"
-            data-wow-duration="1300ms"
-          >
-            <div className="box-feature">
-              <img
-                src="assets/images/common/slider-courses-3.jpg"
-                alt="Image"
-              />
-            </div>
-            <div className="box-content">
-              <div className="box-wrap">
-                <h4 className="title">
-                  <Link href="/classe-details">
-                    <a>Basic English JR</a>
-                  </Link>
-                </h4>
-                <p className="sub f-mulish">
-                  Consectetur adipiscing elit seds eiusmo tempor incide
-                </p>
-              </div>
-              <ul>
-                <li>
-                  <i className="far fa-user-graduate clr-pri-5" />
-                  4-6 Years
-                </li>
-                <li>
-                  <i className="far fa-book clr-pri-6" />5 Class
-                </li>
-                <li>
-                  <i className="fal fa-usd-circle clr-pri-3" />
-                  $259.95
-                </li>
-                <li>
-                  <i className="far fa-clock clr-pri-8" />6 Months
-                </li>
-              </ul>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            data-dot=""
-            className="item-courses wow fadeIn animated"
-            data-wow-delay="0.3ms"
-            data-wow-duration="1300ms"
-          >
-            <div className="box-feature">
-              <img
-                src="assets/images/common/slider-courses-2.jpg"
-                alt="Image"
-              />
-            </div>
-            <div className="box-content">
-              <div className="box-wrap">
-                <h4 className="title">
-                  <Link href="/classe-details">
-                    <a>Computer Learning</a>
-                  </Link>
-                </h4>
-                <p className="sub f-mulish">
-                  Consectetur adipiscing elit seds eiusmo tempor incide
-                </p>
-              </div>
-              <ul>
-                <li>
-                  <i className="far fa-user-graduate clr-pri-5" />
-                  4-6 Years
-                </li>
-                <li>
-                  <i className="far fa-book clr-pri-6" />5 Class
-                </li>
-                <li>
-                  <i className="fal fa-usd-circle clr-pri-3" />
-                  $259.95
-                </li>
-                <li>
-                  <i className="far fa-clock clr-pri-8" />6 Months
-                </li>
-              </ul>
-            </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </div>
       <div className="owl-nav">
         <div className="owl-prev"> </div>

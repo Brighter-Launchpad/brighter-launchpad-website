@@ -1,6 +1,8 @@
+import Link from "next/link";
 import PageBanner from "../src/components/PageBanner";
 import { LeftArrow, RightArrow } from "../src/Icons";
 import Layout from "../src/layouts/Layout";
+import { locations, sharedContact } from "../src/data/locations";
 
 const Contact = () => {
   return (
@@ -14,77 +16,42 @@ const Contact = () => {
               <div className="title-heading st-2">
                 <div className="sub-heading clr-pri-3 f-mulish">
                   <LeftArrow />
-                  <span className="inner-sub st-1">Need Any Support</span>
+                  <span className="inner-sub st-1">Our Locations</span>
                   <RightArrow />
                 </div>
-                <h2 className="title clr-pri-2">
-                  We Are Ready To Help You For Your’s Informations
-                </h2>
+                <h2 className="title clr-pri-2">Our Facility &amp; Location</h2>
               </div>
             </div>
-            <div className="col-md-4">
-              <div
-                className="sc-faq wow fadeIn animated"
-                data-wow-delay="0.3ms"
-                data-wow-duration="1200ms"
-              >
-                <div className="image">
-                  <img src="assets/images/common/sc-faq1.png" alt="Image" />
-                </div>
-                <div className="content">
-                  <h4>Supports and Info</h4>
-                  <p className="desc">
-                    Edipiscin elitsed eiusmod incididunt dolore magna
-                    suspendisse
-                  </p>
-                  <a href="#" className="fl-btn st-5">
-                    <span className="inner">Contact Us</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div
-                className="sc-faq active wow fadeIn animated"
-                data-wow-delay="0.3ms"
-                data-wow-duration="1200ms"
-              >
-                <div className="image">
-                  <img src="assets/images/common/sc-faq2.png" alt="Image" />
-                </div>
-                <div className="content">
-                  <h4>News and Updates</h4>
-                  <p className="desc">
-                    Edipiscin elitsed eiusmod incididunt dolore magna
-                    suspendisse
-                  </p>
-                  <a href="#" className="fl-btn st-5">
-                    <span className="inner">Contact Us</span>
-                  </a>
+            {locations.map((location) => (
+              <div className="col-md-6" key={location.id}>
+                <div
+                  className="sc-faq wow fadeIn animated"
+                  data-wow-delay="0.3ms"
+                  data-wow-duration="1200ms"
+                >
+                  <div className="image location-card-image">
+                    <img src={location.image} alt={location.imageAlt} />
+                  </div>
+                  <div className="content">
+                    <h4>{location.name}</h4>
+                    <p className="desc">{location.address}</p>
+                    <div className="fx" style={{ justifyContent: "center", gap: 12 }}>
+                      <a href="#leave-a-message" className="fl-btn st-5">
+                        <span className="inner">Book A Tour</span>
+                      </a>
+                      <a
+                        href={location.directionsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="fl-btn st-5"
+                      >
+                        <span className="inner">Get Direction</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-md-4">
-              <div
-                className="sc-faq wow fadeIn animated"
-                data-wow-delay="0.3ms"
-                data-wow-duration="1200ms"
-              >
-                <div className="image">
-                  <img src="assets/images/common/sc-faq3.png" alt="Image" />
-                </div>
-                <div className="content">
-                  <h4>Events and Programs</h4>
-                  <p className="desc">
-                    Edipiscin elitsed eiusmod incididunt dolore magna
-                    suspendisse
-                  </p>
-                  <a href="#" className="fl-btn st-5">
-                    <span className="inner">Contact Us</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -101,8 +68,9 @@ const Contact = () => {
                   Feel Free To Contact Us For More Info
                 </h2>
                 <p className="f-mulish">
-                  Consectetur adipiscin elitsed eiusmod tempor incidide labore
-                  magna aliqua suspendisse gravida commodo
+                  We&apos;re here to answer your questions and help you take
+                  the next step in your child&apos;s learning journey. Feel
+                  free to reach out to us today!
                 </p>
               </div>
               <div className="wrap-contact">
@@ -124,8 +92,12 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div className="content">
-                    <p>Address</p>
-                    <h4>55 Main Street, New York</h4>
+                    <p>Locations</p>
+                    <h4>
+                      <Link href="/location">
+                        <a>4 Centres Across New Brunswick</a>
+                      </Link>
+                    </h4>
                   </div>
                 </div>
                 <div className="fx Email">
@@ -148,7 +120,11 @@ const Contact = () => {
                   </div>
                   <div className="content">
                     <p>Email Address</p>
-                    <h4>support@gmail.com</h4>
+                    <h4>
+                      <a href={`mailto:${sharedContact.email}`}>
+                        {sharedContact.email}
+                      </a>
+                    </h4>
                   </div>
                 </div>
                 <div className="fx phone">
@@ -170,7 +146,11 @@ const Contact = () => {
                   </div>
                   <div className="content">
                     <p>Hotline</p>
-                    <h4>+012 (345) 678</h4>
+                    <h4>
+                      <a href={`tel:${sharedContact.phoneTel}`}>
+                        {sharedContact.phone}
+                      </a>
+                    </h4>
                   </div>
                 </div>
               </div>
@@ -192,7 +172,9 @@ const Contact = () => {
           <div className="flat-map">
             <iframe
               className="map-content wow fadeInUp   animated"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4457.30210514409!2d144.9550716623184!3d-37.818421643591336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4dd5a05d97%3A0x3e64f855a564844d!2s121%20King%20St%2C%20Melbourne%20VIC%203000%2C%20%C3%9Ac!5e0!3m2!1svi!2s!4v1631871760998!5m2!1svi!2s"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(
+                locations[0].address
+              )}&output=embed`}
               width={1720}
               height={655}
               style={{
@@ -206,7 +188,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      <section className="tf-section tf-message">
+      <section className="tf-section tf-message" id="leave-a-message">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
@@ -253,8 +235,14 @@ const Contact = () => {
                       <div className="select">
                         <select name="subject" id="subject">
                           <option value="Please Select">Subject</option>
-                          <option value="services1">Subject 01</option>
-                          <option value="services2">Subject 02</option>
+                          <option value="General Inquiry">General Inquiry</option>
+                          <option value="Enrollment / Book A Tour">
+                            Enrollment / Book A Tour
+                          </option>
+                          <option value="Careers">Careers</option>
+                          <option value="Franchise Opportunities">
+                            Franchise Opportunities
+                          </option>
                         </select>
                       </div>
                     </fieldset>

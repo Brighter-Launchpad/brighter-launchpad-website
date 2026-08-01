@@ -9,7 +9,7 @@ export const activeNavMenu = (path) => {
           nav.pathname === "/about" ||
           nav.pathname === "/program" ||
           nav.pathname === "/franchise" ||
-          nav.pathname === "/locations" ||
+          nav.pathname === "/location" ||
           nav.pathname === "/faq"
         ) {
           nav.parentElement.className = "current-menu-item";

@@ -92,7 +92,7 @@ const Index = () => {
                         <div className="box-feature">
                           <div className="image">
                             <img
-                              src="assets/images/common/slider-1.png"
+                              src="assets/images/common/slider-1-hero.png"
                               alt="Image"
                             />
                           </div>
@@ -214,18 +214,15 @@ const Index = () => {
                 <div className="box-content">
                   <h4 className="title">
                     <Link href="/classes">
-                      <a>Study &amp; Game</a>
+                      <a>Play</a>
                     </Link>
                   </h4>
                   <p className="wrap f-mulish">
-                    Sed ut perspiciatis unde omnis iste natu voluptatem accus
-                    antium dolorem
+                    Play is how children make sense of the world. At Brighter
+                    Launchpad, every day is filled with hands-on experiences
+                    that spark creativity, build problem-solving skills, and
+                    create joyful moments of discovery.
                   </p>
-                  <Link href="/classes">
-                    <a className="fl-btn st-13">
-                      <span className="inner">read more</span>
-                    </a>
-                  </Link>
                 </div>
               </div>
             </div>
@@ -255,18 +252,15 @@ const Index = () => {
                 <div className="box-content">
                   <h4 className="title">
                     <Link href="/program">
-                      <a>A to Z Programs</a>
+                      <a>Explore</a>
                     </Link>
                   </h4>
                   <p className="wrap f-mulish">
-                    Sed ut perspiciatis unde omnis iste natu voluptatem accus
-                    antium dolorem
+                    Curiosity is a child&rsquo;s superpower. We create safe,
+                    engaging environments where little explorers can follow
+                    their interests, ask big questions, and build confidence
+                    through hands-on learning and discovery.
                   </p>
-                  <Link href="/program">
-                    <a className="fl-btn st-13">
-                      <span className="inner">read more</span>
-                    </a>
-                  </Link>
                 </div>
               </div>
             </div>
@@ -296,18 +290,15 @@ const Index = () => {
                 <div className="box-content">
                   <h4 className="title">
                     <Link href="/teacher">
-                      <a>Expert Teacher</a>
+                      <a>Grow</a>
                     </Link>
                   </h4>
                   <p className="wrap f-mulish">
-                    Sed ut perspiciatis unde omnis iste natu voluptatem accus
-                    antium dolorem
+                    Growth happens in every giggle, every challenge, and every
+                    new experience. At Brighter Launchpad, we nurture
+                    independence, resilience, and self-expression&mdash;helping
+                    children embrace learning at their own pace.
                   </p>
-                  <Link href="/teacher">
-                    <a className="fl-btn st-13">
-                      <span className="inner">read more</span>
-                    </a>
-                  </Link>
                 </div>
               </div>
             </div>
@@ -337,18 +328,15 @@ const Index = () => {
                 <div className="box-content">
                   <h4 className="title">
                     <Link href="/events">
-                      <a>Mental Health</a>
+                      <a>Belong</a>
                     </Link>
                   </h4>
                   <p className="wrap f-mulish">
-                    Sed ut perspiciatis unde omnis iste natu voluptatem accus
-                    antium dolorem
+                    Brighter Launchpad is a family. Here, every child is
+                    valued, friendships grow naturally, and a strong sense of
+                    belonging helps little ones feel safe, confident, and
+                    ready to thrive.
                   </p>
-                  <Link href="/events">
-                    <a className="fl-btn st-13">
-                      <span className="inner">read more</span>
-                    </a>
-                  </Link>
                 </div>
               </div>
             </div>
@@ -374,18 +362,18 @@ const Index = () => {
                       <RightArrow />
                     </div>
                     <h2 className="title clr-pri-2">
-                      We Learn Smart Way To Build Bright Futute For Your
+                      We Learn Smart Way To Build Bright Future For Your
                       Children
                     </h2>
                   </div>
                   <p className="wrap f-mulish st-1">
-                    Amet consectetur adipiscin elitsed eiusmod tempor incididunt
-                    labore et dolore magna aliqua. Quis ipsum suspendisse
-                    ultrices gravida. Risus commodo maecenas accumsan
+                    At Brighter Launchpad, we nurture young minds through
+                    joyful play, creativity, and exploration.
                   </p>
                   <p className="wrap f-mulish st-2">
-                    Quis autem vel eum iure reprehenderit quiin ea voluptate
-                    velit esse quam nihil molestiae consequatur velillum
+                    In our safe, caring, and inclusive environment, children
+                    develop confidence, curiosity, and a love for learning
+                    that lays the foundation for a bright future.
                   </p>
                   <div className="box-btn fx">
                     <Link href="/about">
@@ -407,11 +395,11 @@ const Index = () => {
               <div className="title-heading st-3">
                 <div className="sub-heading clr-pri-3 f-mulish">
                   <LeftArrow />
-                  <span className="inner-sub st-1">Latest Program</span>
+                  <span className="inner-sub st-1">For Families</span>
                   <RightArrow />
                 </div>
                 <h2 className="title clr-pri-2">
-                  We Provide Awesome Program To Build Bright Future
+                  Programs For Every Age And Stage
                 </h2>
               </div>
             </div>
@@ -447,6 +435,11 @@ const Index = () => {
                 <div className="themesflat-carousel clearfix">
                   <Swiper
                     {...fourSlider}
+                    breakpoints={{
+                      0: { slidesPerView: 1 },
+                      600: { slidesPerView: 2 },
+                      992: { slidesPerView: 3 },
+                    }}
                     className="owl-carousel owl-theme none dots-none"
                   >
                     <SwiperSlide>
@@ -464,11 +457,11 @@ const Index = () => {
                         <div className="box-content st-1">
                           <h4 className="name">
                             <Link href="/teacher-details">
-                              <a className="clr-pri-1">Patrick K. Carlson</a>
+                              <a className="clr-pri-1">Meagan Agnew</a>
                             </Link>
                           </h4>
                           <p className="sub f-mulish clr-pri-1">
-                            Computer Teacher
+                            Administrator
                           </p>
                         </div>
                       </div>
@@ -488,11 +481,11 @@ const Index = () => {
                         <div className="box-content st-2">
                           <h4 className="name">
                             <Link href="/teacher-details">
-                              <a className="clr-pri-1">Roderick M. Neal</a>
+                              <a className="clr-pri-1">Chelsey Carten</a>
                             </Link>
                           </h4>
                           <p className="sub f-mulish clr-pri-1">
-                            Arts &amp; Drawing
+                            Toddler Educator (2 Year Olds)
                           </p>
                         </div>
                       </div>
@@ -512,35 +505,11 @@ const Index = () => {
                         <div className="box-content st-3">
                           <h4 className="name">
                             <Link href="/teacher-details">
-                              <a className="clr-pri-1">Frank T. Norman</a>
+                              <a className="clr-pri-1">Cheryl Quigley</a>
                             </Link>
                           </h4>
                           <p className="sub f-mulish clr-pri-1">
-                            English Teacher
-                          </p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div
-                        className="sc-employee wow fadeInUp animated"
-                        data-wow-delay="0.3ms"
-                        data-wow-duration="1400ms"
-                      >
-                        <div className="box-feature">
-                          <img
-                            src="assets/images/common/sc-employee-4.jpg"
-                            alt="Image"
-                          />
-                        </div>
-                        <div className="box-content st-4">
-                          <h4 className="name">
-                            <Link href="/teacher-details">
-                              <a className="clr-pri-1">Scott M. Fletcher</a>
-                            </Link>
-                          </h4>
-                          <p className="sub f-mulish clr-pri-1">
-                            Science Teacher
+                            Support Educator
                           </p>
                         </div>
                       </div>

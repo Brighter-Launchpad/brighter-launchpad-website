@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { locations, sharedContact } from "../data/locations";
+
 const Footer = () => {
   return (
     <footer id="footer">
@@ -7,23 +9,26 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-6 col-md-12 col-12">
               <div className="subcribe-wp">
-                <h2 className="title">Subscribe Our Newsletter</h2>
+                <h2 className="title">Subscribe To Our Newsletter</h2>
                 <p className="sub f-mulish">
-                  Beet consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt ut labore
+                  Stay up to date with news and stories from every Brighter
+                  Launchpad centre.
                 </p>
               </div>
             </div>
             <div className="col-lg-6 col-md-12 col-12">
               <div className="subcribe-form fx" id="subscribe-form">
                 <form action="#" onSubmit={(e) => e.preventDefault()}>
+                  <label htmlFor="subscribe-email" className="visually-hidden">
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     id="subscribe-email"
                     placeholder="Email Address"
                   />
                   <button className="fl-btn st-7" id="subscribe-button">
-                    <span className="inner">Subscribe</span>
+                    <span className="inner">Submit</span>
                   </button>
                 </form>
               </div>
@@ -55,139 +60,99 @@ const Footer = () => {
                     </Link>
                   </div>
                   <p className="wrap f-mulish">
-                    Sit amet consectetur adipiscing elit sed do eiusmod teminci
-                    idunt ut labore et dolore magna
+                    Brighter Launchpad is a warm, inclusive playschool where
+                    children thrive through exploration, creativity, and
+                    joyful play. With a focus on nurturing confidence and
+                    curiosity, we provide a welcoming space where little
+                    learners feel safe, supported, and excited to grow.
                   </p>
-                  <div className="list-contact">
-                    <ul>
-                      <li className="fx">
-                        <span>
-                          <i className="far fa-map-marker-alt" /> 55 Main
-                          Street, New York
-                        </span>
-                      </li>
-                      <li className="fx">
-                        <a href="mailto:hotline@gmail.com">
-                          <i className="far fa-envelope" /> hotline@gmail.com
-                        </a>
-                      </li>
-                      <li className="fx">
-                        <a href="tel:012345678">
-                          <i className="fal fa-phone" /> +012 (345) 678
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="widget widget-business">
-                  <div className="inner">
-                    <div className="op-time">
-                      <h4 className="title-widget">opening hours</h4>
-                      <ul>
-                        <li>
-                          <span className="f-mulish">Sunday - Friday</span>
-                        </li>
-                        <li>
-                          <span className="f-mulish">08 am - 05 pm</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="cls-time">
-                      <p>Every Satarday and Govt Holiday</p>
-                      <h4 className="title-widget">closed</h4>
-                    </div>
-                  </div>
                 </div>
                 <div className="widget widget-link">
-                  <h4 className="title-widget">Our Program</h4>
+                  <h4 className="title-widget">Useful Links</h4>
                   <ul className="list-link">
                     <li className="fx">
-                      <Link href="/program">
-                        <a className="wd-ctm f-mulish">Arts &amp; Drawing</a>
+                      <Link href="/">
+                        <a className="wd-ctm f-mulish">Home</a>
                       </Link>
                     </li>
                     <li className="fx">
-                      <Link href="/program">
-                        <a className="wd-ctm f-mulish">Computer Engineering </a>
+                      <Link href="/about">
+                        <a className="wd-ctm f-mulish">About Us</a>
                       </Link>
                     </li>
                     <li className="fx">
-                      <Link href="/program">
-                        <a className="wd-ctm f-mulish">Digital Mathematics</a>
+                      <Link href="/gallery">
+                        <a className="wd-ctm f-mulish">Gallery</a>
                       </Link>
                     </li>
                     <li className="fx">
-                      <Link href="/program">
-                        <a className="wd-ctm f-mulish">Physical Exercise</a>
+                      <Link href="/location">
+                        <a className="wd-ctm f-mulish">Location</a>
                       </Link>
                     </li>
                     <li className="fx">
-                      <Link href="/program">
-                        <a className="wd-ctm f-mulish">General Science</a>
+                      <Link href="/careers">
+                        <a className="wd-ctm f-mulish">Careers</a>
                       </Link>
                     </li>
                     <li className="fx">
-                      <Link href="/program">
-                        <a className="wd-ctm f-mulish">English Basic</a>
+                      <Link href="/blog-grid">
+                        <a className="wd-ctm f-mulish">News</a>
                       </Link>
                     </li>
                     <li className="fx">
-                      <Link href="/program">
-                        <a className="wd-ctm f-mulish">Social Science</a>
+                      <Link href="/blog-grid">
+                        <a className="wd-ctm f-mulish">Blog</a>
                       </Link>
                     </li>
                   </ul>
                 </div>
-                <div className="widget widget-news st-3">
-                  <h4 className="title-widget">recent news</h4>
-                  <ul className="list-news">
+                <div className="widget widget-link">
+                  <h4 className="title-widget">Our Branches</h4>
+                  <ul className="list-link">
+                    {locations.map((location) => (
+                      <li className="fx" key={location.id}>
+                        <Link href={location.detailUrl}>
+                          <a className="wd-ctm f-mulish">{location.name}</a>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="widget widget-contact">
+                  <h4 className="title-widget">Contact Us</h4>
+                  <ul className="list-contact">
                     <li className="fx">
-                      <img
-                        src="assets/images/thumbnails/widget9.jpg"
-                        alt="Image"
-                        className="feature"
-                      />
-                      <ul className="box-content">
-                        <li>
-                          <h6 className="title">
-                            <Link href="/blog-grid">
-                              <a>Useful Code Extened End Developers</a>
-                            </Link>
-                          </h6>
-                        </li>
-                        <li>
-                          <Link href="/blog-grid">
-                            <a className="fx meta-news clr-pri-6">
-                              <i className="far fa-calendar-alt" />
-                              25 dec 2021
-                            </a>
-                          </Link>
-                        </li>
-                      </ul>
+                      <a href={`tel:${sharedContact.phoneTel}`}>
+                        <i className="fal fa-phone" /> {sharedContact.phone}
+                      </a>
                     </li>
                     <li className="fx">
-                      <img
-                        src="assets/images/thumbnails/widget10.jpg"
-                        alt="Image"
-                        className="feature"
-                      />
-                      <ul className="box-content">
-                        <li>
-                          <h6 className="title">
-                            <Link href="/blog-grid">
-                              <a>Useful Code Extened End Developers</a>
-                            </Link>
-                          </h6>
-                        </li>
-                        <li>
-                          <Link href="/blog-grid">
-                            <a className="fx meta-news clr-pri-6">
-                              <i className="far fa-calendar-alt" />
-                              25 dec 2021
-                            </a>
-                          </Link>
-                        </li>
-                      </ul>
+                      <a href={`mailto:${sharedContact.email}`}>
+                        <i className="far fa-envelope" /> {sharedContact.email}
+                      </a>
+                    </li>
+                  </ul>
+                  <ul className="list-link footer-legal-links">
+                    <li className="fx">
+                      <Link href="/privacy-policy">
+                        <a className="wd-ctm f-mulish">Privacy Policy</a>
+                      </Link>
+                    </li>
+                    <li className="fx">
+                      <Link href="/terms-of-use">
+                        <a className="wd-ctm f-mulish">Terms of Use</a>
+                      </Link>
+                    </li>
+                    <li className="fx">
+                      <Link href="/privacy-policy#cookies">
+                        <a className="wd-ctm f-mulish">Cookie Information</a>
+                      </Link>
+                    </li>
+                    <li className="fx">
+                      <Link href="/anti-bias-statement">
+                        <a className="wd-ctm f-mulish">Anti-Bias Statement</a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -196,12 +161,8 @@ const Footer = () => {
             <div className="col-12">
               <div className="footer-bottom jus-ct">
                 <p className="copy-right">
-                  Copyright © {new Date().getFullYear()}, Brighter Launchpad -
-                  Kindergarten
-                  HTML Template. Designed by{" "}
-                  <a href="https://themeforest.net/user/webtend/portfolio">
-                    Webtend
-                  </a>
+                  Copyright &copy; {new Date().getFullYear()} Brighter
+                  Launchpad. All rights reserved.
                 </p>
               </div>
             </div>

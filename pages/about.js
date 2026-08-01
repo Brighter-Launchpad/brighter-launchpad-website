@@ -1,11 +1,8 @@
 import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
 import PageBanner from "../src/components/PageBanner";
 import TestimonialSlider from "../src/components/TestimonialSlider";
-import TfCounter from "../src/components/TfCounter";
 import { LeftArrow, RightArrow } from "../src/Icons";
 import Layout from "../src/layouts/Layout";
-import { fourSlider } from "../src/SliderProps";
 
 const About = () => {
   return (
@@ -52,8 +49,8 @@ const About = () => {
                   data-wow-duration="1200ms"
                 >
                   <h5 className="clr-pri-2 title">
-                    <span className="clr-pri-3">25638+</span>Parents Say About
-                    Our School
+                    <span className="clr-pri-3">Trusted</span> By Families At
+                    Every Centre
                   </h5>
                   <ul className="fx">
                     <li>
@@ -104,7 +101,7 @@ const About = () => {
                     <RightArrow />
                   </div>
                   <h2 className="title clr-pri-2">
-                    We Learn Smart Way To Build Bright Futute
+                    Brighter Minds, Brighter Futures!
                   </h2>
                 </div>
                 <div className="inner">
@@ -113,37 +110,37 @@ const About = () => {
                     data-wow-delay="0.3ms"
                     data-wow-duration="1000ms"
                   >
-                    Amet consectetur adipiscin elitsed eiusmod tempor incididunt
-                    labore et dolore magna aliqua. Quis ipsum suspendisse
-                    ultrices gravida. Risus commodo maecenas accumsan
+                    At Brighter LaunchPad, we&apos;re dedicated to empowering
+                    young minds, sparking creativity, and fostering a love for
+                    learning. Every child is unique, and we provide a safe,
+                    inclusive, and nurturing space where they can explore,
+                    grow, and thrive.
                   </p>
                   <h4 className="title-line">
-                    Most Successful Results Institute For kindergarten Since
-                    2021
+                    Our Mission: nurture young minds, inspire creativity, and
+                    build a strong foundation for lifelong learning.
                   </h4>
                   <ul>
                     <li className="st-1 fx">
                       <i className="fas fa-check" />
-                      <p className="clr-pri-2">Outdoor Games</p>
+                      <p className="clr-pri-2">Inclusivity</p>
                     </li>
                     <li className="st-2 fx">
                       <i className="fas fa-check" />
-                      <p className="clr-pri-2">Sport Activites</p>
+                      <p className="clr-pri-2">Community</p>
                     </li>
                     <li className="st-3 fx">
                       <i className="fas fa-check" />
-                      <p className="clr-pri-2">Nutritious Foods</p>
+                      <p className="clr-pri-2">Creativity</p>
                     </li>
                     <li className="st-4 fx">
                       <i className="fas fa-check" />
-                      <p className="clr-pri-2">Event &amp; Party</p>
+                      <p className="clr-pri-2">Safety &amp; Care</p>
                     </li>
                   </ul>
-                  <Link href="/testimonials">
-                    <a className="fl-btn st-11">
-                      <span className="inner">learn more Us</span>
-                    </a>
-                  </Link>
+                  <a className="fl-btn st-11" href="#our-story">
+                    <span className="inner">Discover Our Story</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -157,11 +154,11 @@ const About = () => {
               <div className="title-heading st-3">
                 <div className="sub-heading clr-pri-3 f-mulish">
                   <LeftArrow />
-                  <span className="inner-sub st-1">Our Activities</span>
+                  <span className="inner-sub st-1">What We Stand For</span>
                   <RightArrow />
                 </div>
                 <h2 className="title clr-pri-2">
-                  We Do Something Better For Bright Children Future Activities
+                  The Values That Guide Everything We Do
                 </h2>
               </div>
             </div>
@@ -194,19 +191,13 @@ const About = () => {
                     </div>
                     <div className="box-content">
                       <h4 className="title">
-                        <Link href="/classes">
-                          <a>Study &amp; Game</a>
-                        </Link>
+                        <a>Inclusivity</a>
                       </h4>
                       <p className="wrap f-mulish">
-                        Sed ut perspiciatis unde omnis iste natu voluptatem
-                        accus antium dolorem
+                        We celebrate the uniqueness of every child, ensuring
+                        they feel valued, heard, and respected in a diverse
+                        and inclusive environment.
                       </p>
-                      <Link href="/classes">
-                        <a className="fl-btn st-13">
-                          <span className="inner">read more</span>
-                        </a>
-                      </Link>
                     </div>
                   </div>
                 </div>
@@ -234,19 +225,14 @@ const About = () => {
                     </div>
                     <div className="box-content">
                       <h4 className="title">
-                        <Link href="/program">
-                          <a>Event &amp; Programs</a>
-                        </Link>
+                        <a>Community</a>
                       </h4>
                       <p className="wrap f-mulish">
-                        Sed ut perspiciatis unde omnis iste natu voluptatem
-                        accus antium dolorem
+                        We believe in building strong partnerships with
+                        families and the broader community, fostering a
+                        supportive network that nurtures each child&apos;s
+                        growth.
                       </p>
-                      <Link href="/program">
-                        <a className="fl-btn st-13">
-                          <span className="inner">read more</span>
-                        </a>
-                      </Link>
                     </div>
                   </div>
                 </div>
@@ -276,19 +262,13 @@ const About = () => {
                     </div>
                     <div className="box-content">
                       <h4 className="title">
-                        <Link href="/teacher">
-                          <a>Competitions</a>
-                        </Link>
+                        <a>Creativity</a>
                       </h4>
                       <p className="wrap f-mulish">
-                        Sed ut perspiciatis unde omnis iste natu voluptatem
-                        accus antium dolorem
+                        We foster a love for learning by encouraging
+                        imaginative thinking and creative expression through
+                        hands-on activities and play-based learning.
                       </p>
-                      <Link href="/teacher">
-                        <a className="fl-btn st-13">
-                          <span className="inner">read more</span>
-                        </a>
-                      </Link>
                     </div>
                   </div>
                 </div>
@@ -319,19 +299,14 @@ const About = () => {
                     </div>
                     <div className="box-content">
                       <h4 className="title">
-                        <Link href="/events">
-                          <a>Outdoor Games</a>
-                        </Link>
+                        <a>Safety &amp; Care</a>
                       </h4>
                       <p className="wrap f-mulish">
-                        Sed ut perspiciatis unde omnis iste natu voluptatem
-                        accus antium dolorem
+                        The safety and well-being of each child is our top
+                        priority. We provide a secure and supportive
+                        environment where children feel emotionally and
+                        physically safe.
                       </p>
-                      <Link href="/events">
-                        <a className="fl-btn st-13">
-                          <span className="inner">read more</span>
-                        </a>
-                      </Link>
                     </div>
                   </div>
                 </div>
@@ -340,186 +315,61 @@ const About = () => {
           </div>
         </div>
       </section>
-      <TfCounter />
-      <section className="tf-section tf-employee">
+      <section className="tf-section tf-sc-about2" id="our-story">
         <div className="container">
           <div className="row">
-            <div className="col-12">
-              <div className="title-heading st-1">
-                <div className="sub-heading clr-pri-3 f-mulish">
-                  <LeftArrow />
-                  <span className="inner-sub st-1">Meet Our Teacher</span>
-                  <RightArrow />
-                </div>
-                <h2 className="title clr-pri-2">
-                  We Have Lot’s Of Experience Teacher To Teach The Students
-                </h2>
+            <div className="col-xl-7 col-lg-7 col-md-12 col-12">
+              <div className="feature-about2">
+                <img
+                  src="assets/images/common/sc-aboutus-2.jpg"
+                  alt="Image"
+                  className="wow fadeInLeft animated"
+                  data-wow-delay="0.3ms"
+                  data-wow-duration="1000ms"
+                />
               </div>
             </div>
-            <div className="col-12">
-              <div className="slider-employee">
-                <div className="themesflat-carousel clearfix">
-                  <Swiper
-                    {...fourSlider}
-                    className="owl-carousel owl-theme none dots-none"
-                  >
-                    <SwiperSlide>
-                      <div
-                        className="sc-employee wow fadeInUp animated"
-                        data-wow-delay="0.3ms"
-                        data-wow-duration="800ms"
-                      >
-                        <div className="box-feature">
-                          <img
-                            src="assets/images/common/sc-employee-1.jpg"
-                            alt="Image"
-                          />
-                        </div>
-                        <div className="box-content st-1">
-                          <h4 className="name">
-                            <Link href="/teacher-details">
-                              <a className="clr-pri-1">Patrick K. Carlson</a>
-                            </Link>
-                          </h4>
-                          <p className="sub f-mulish clr-pri-1">
-                            Computer Teacher
-                          </p>
-                          <div className="social">
-                            <a href="#">
-                              <i className="fab fa-facebook-f" />
-                            </a>
-                            <a href="#">
-                              <i className="fab fa-twitter" />
-                            </a>
-                            <a href="#">
-                              <i className="fab fa-instagram" />
-                            </a>
-                            <a href="#">
-                              <i className="fab fa-linkedin-in" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div
-                        className="sc-employee active wow fadeInUp animated"
-                        data-wow-delay="0.3ms"
-                        data-wow-duration="1000ms"
-                      >
-                        <div className="box-feature">
-                          <img
-                            src="assets/images/common/sc-employee-2.jpg"
-                            alt="Image"
-                          />
-                        </div>
-                        <div className="box-content st-2">
-                          <h4 className="name">
-                            <Link href="/teacher-details">
-                              <a className="clr-pri-1">Roderick M. Neal</a>
-                            </Link>
-                          </h4>
-                          <p className="sub f-mulish clr-pri-1">
-                            Arts &amp; Drawing
-                          </p>
-                          <div className="social">
-                            <a href="#" className="active">
-                              <i className="fab fa-facebook-f" />
-                            </a>
-                            <a href="#">
-                              <i className="fab fa-twitter" />
-                            </a>
-                            <a href="#">
-                              <i className="fab fa-instagram" />
-                            </a>
-                            <a href="#">
-                              <i className="fab fa-linkedin-in" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div
-                        className="sc-employee wow fadeInUp animated"
-                        data-wow-delay="0.3ms"
-                        data-wow-duration="1200ms"
-                      >
-                        <div className="box-feature">
-                          <img
-                            src="assets/images/common/sc-employee-3.jpg"
-                            alt="Image"
-                          />
-                        </div>
-                        <div className="box-content st-3">
-                          <h4 className="name">
-                            <Link href="/teacher-details">
-                              <a className="clr-pri-1">Frank T. Norman</a>
-                            </Link>
-                          </h4>
-                          <p className="sub f-mulish clr-pri-1">
-                            English Teacher
-                          </p>
-                          <div className="social">
-                            <a href="#">
-                              <i className="fab fa-facebook-f" />
-                            </a>
-                            <a href="#">
-                              <i className="fab fa-twitter" />
-                            </a>
-                            <a href="#">
-                              <i className="fab fa-instagram" />
-                            </a>
-                            <a href="#">
-                              <i className="fab fa-linkedin-in" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div
-                        className="sc-employee wow fadeInUp animated"
-                        data-wow-delay="0.3ms"
-                        data-wow-duration="1400ms"
-                      >
-                        <div className="box-feature">
-                          <img
-                            src="assets/images/common/sc-employee-4.jpg"
-                            alt="Image"
-                          />
-                        </div>
-                        <div className="box-content st-4">
-                          <h4 className="name">
-                            <Link href="/teacher-details">
-                              <a className="clr-pri-1">Scott M. Fletcher</a>
-                            </Link>
-                          </h4>
-                          <p className="sub f-mulish clr-pri-1">
-                            Science Teacher
-                          </p>
-                          <div className="social">
-                            <a href="#">
-                              <i className="fab fa-facebook-f" />
-                            </a>
-                            <a href="#">
-                              <i className="fab fa-twitter" />
-                            </a>
-                            <a href="#">
-                              <i className="fab fa-instagram" />
-                            </a>
-                            <a href="#">
-                              <i className="fab fa-linkedin-in" />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  </Swiper>
+            <div className="col-xl-5 col-lg-5 col-md-12 col-12">
+              <div className="sc-about-2">
+                <div className="title-heading">
+                  <div className="sub-heading clr-pri-3 f-mulish">
+                    <span className="inner-sub st-2">Our Story</span>
+                    <RightArrow />
+                  </div>
+                  <h2 className="title clr-pri-2">
+                    Growing With Every Family We Welcome
+                  </h2>
                 </div>
-                {/*/.themesflat-carousel*/}
+                <div className="inner">
+                  <p
+                    className="wrap f-mulish clr-pri-4 wow fadeIn animated"
+                    data-wow-delay="0.3ms"
+                    data-wow-duration="1000ms"
+                  >
+                    Brighter LaunchPad was founded with the vision to provide
+                    high-quality, inclusive early childhood education where
+                    children can thrive. Over the years, we&apos;ve built a
+                    community that celebrates creativity, diversity, and
+                    learning.
+                  </p>
+                  <h4 className="title-line">
+                    Our Vision: confidence, friendship, and self-expression
+                    built through play and group activities.
+                  </h4>
+                  <p className="wrap f-mulish clr-pri-4">
+                    From our first steps in establishing a safe, creative
+                    environment to becoming a trusted partner for families,
+                    we continue to grow and evolve — always staying true to
+                    our mission of nurturing young minds and inspiring
+                    future leaders.
+                  </p>
+                  <Link href="/program">
+                    <a className="fl-btn st-11">
+                      <span className="inner">Explore Our Programs</span>
+                    </a>
+                  </Link>
+                </div>
               </div>
-              {/*/.slider-2*/}
             </div>
           </div>
         </div>
@@ -535,18 +385,19 @@ const About = () => {
               >
                 <div className="wrap">
                   <h2 className="title clr-pri-1">
-                    Ready To Admit Your Child ?
+                    Ready To Give Your Child A Brighter Future?
                   </h2>
                   <p className="sub clr-pri-1 f-mulish">
-                    Amet consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore
+                    Join us at Brighter LaunchPad, where we provide a
+                    nurturing environment for your child&apos;s first steps
+                    in lifelong learning.
                   </p>
                 </div>
                 <div className="inner-sc-contact">
                   <div className="box-btn">
                     <Link href="/contact">
                       <a className="fl-btn st-9">
-                        <span className="inner">Enroll Now</span>
+                        <span className="inner">Get In Touch</span>
                       </a>
                     </Link>
                   </div>
@@ -569,7 +420,7 @@ const About = () => {
                     </svg>
                     <ul>
                       <li className="clr-pri-1">Hotline</li>
-                      <li className="clr-pri-1">+012 (345) 678</li>
+                      <li className="clr-pri-1">+1 613-305-2982</li>
                     </ul>
                   </div>
                 </div>
