@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import {
   About,
+  BlogLink,
   Contact,
   Faq,
   Franchise,
@@ -91,6 +92,9 @@ const Header1 = () => {
                     </li>
                     <li className="menu-item">
                       <Faq />
+                    </li>
+                    <li className="menu-item">
+                      <BlogLink />
                     </li>
                     <li className="inner">
                       <Contact />

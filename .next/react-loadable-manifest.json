@@ -4,11 +4,5 @@
     "files": [
       "static/chunks/src_components_Counter_js.js"
     ]
-  },
-  "teacher.js -> ../src/components/DonutChart": {
-    "id": "teacher.js -> ../src/components/DonutChart",
-    "files": [
-      "static/chunks/src_components_DonutChart_js.js"
-    ]
   }
 }

@@ -73,7 +73,7 @@ export const Program = () => (
       <Link href="/program">Program</Link>
     </li>
     <li>
-      <Link href="/program-details">program details</Link>
+      <Link href="/program-infant">program details</Link>
     </li>
   </Fragment>
 );
@@ -105,6 +105,7 @@ export const Contact = () => <Link href="/contact">CONTACTS</Link>;
 export const ProgramsLink = () => <Link href="/program">Programs</Link>;
 export const Franchise = () => <Link href="/franchise">Franchise</Link>;
 export const Faq = () => <Link href="/faq">FAQ</Link>;
+export const BlogLink = () => <Link href="/blog">Blog</Link>;
 export const Locations = () => (
   <Fragment>
     <Link href="/location">

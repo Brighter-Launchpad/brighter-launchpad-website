@@ -13,6 +13,360 @@
   color: var(--primary-color3) !important;
 }
 
+/* Footer newsletter signup: the Beehiiv embed (BeehiivSubscribeForm) renders
+   its own iframe at a fixed default width, which looks stranded inside the
+   ".subcribe-form" column the template built for a plain input+button pair.
+   Give the embed a sensible max-width and let its iframe fill it instead. */
+.beehiiv-subscribe-form {
+  width: 100%;
+  max-width: 420px;
+}
+
+.beehiiv-subscribe-form iframe {
+  width: 100% !important;
+  max-width: 100%;
+}
+
+/* Inner-page header (Header.js): the search icon, hotline number, and
+   hamburger/sidebar toggle have been removed entirely, and the nav now
+   sits in the same row as the logo instead of on its own row below —
+   there's nothing left to share that second row with once those are
+   gone, and stacking two rows just wasted vertical space. Both the logo
+   and the nav are direct children of #site-header (not nested in the
+   centered .container-fluid), positioned a fixed distance from the
+   header's true edges so their placement doesn't shift with viewport
+   width the way the old centered-container layout did. */
+.inner-page #site-header > #site-logo {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 10;
+  margin: 0;
+}
+
+.inner-page #site-header > .nav-wrap {
+  /* Overrides ".inner-page .nav-wrap" (style.css), which sets left:18.7%
+     and transform:translateY(-50%) for the old layout — reset "right" and
+     "transform" explicitly rather than just adding new properties on top,
+     otherwise that rule's original values keep applying alongside these
+     (different properties, not a specificity conflict) and stretch this
+     box between both edges.
+     Nav starts 200px after the logo (24px left offset + its own ~364px
+     width) instead of hugging the header's right edge, so it reads as
+     more centered in the header rather than pinned to one side. */
+  position: absolute;
+  top: 42px;
+  left: 588px;
+  right: auto;
+  transform: none;
+  z-index: 10;
+}
+
+.inner-page #site-header > .nav-wrap #mainnav.st-2 .menu > li > a {
+  line-height: 40px;
+}
+
+/* #site-logo and .nav-wrap are both absolutely positioned now (see above),
+   so #site-header no longer has any in-flow content to size itself
+   around — its visible height is just whatever the logo/nav happen to
+   occupy. The page banner below still needs enough top padding to clear
+   them (24px top offset + the logo's own ~105px height), with a little
+   breathing room. This is comfortably less than before now that the nav
+   no longer has its own separate row underneath. */
+.inner-page .page-title.inner {
+  padding-top: 190px;
+}
+
+/* The template's stickyNav JS adds "is-fixed"/"is-small" classes on scroll
+   to pin #site-header to the top of the viewport (position:fixed) with a
+   white background. Inner pages should behave like a normal page instead
+   — the header just scrolls away with the rest of the content, the same
+   as it looks at the top of the page. Cancel the fixed positioning and
+   the associated color/shadow changes rather than trying to keep them in
+   sync with a header that's no longer pinned. */
+.inner-page #site-header.is-fixed {
+  position: absolute;
+  top: auto;
+  opacity: 1;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* The template also swaps the nav links from white to dark navy under
+   .is-fixed, on the assumption that the header background has gone white
+   (see above — it no longer does, since the header isn't pinned/recolored
+   on inner pages anymore). Left alone, that swap put dark text back on
+   the still-dark header, making it unreadable. Keep it white at all
+   scroll positions, matching the top-of-page look. */
+.inner-page .is-fixed #mainnav .menu > li.menu-item-has-children > a::after,
+.inner-page .is-fixed #mainnav .menu li > a {
+  color: var(--primary-color1);
+}
+
+/* Inner pages' mobile header (MobileMenu.js, shown below the "xl"
+   breakpoint) renders the logo directly over the dark page-title photo.
+   On desktop the decorative white blob from the page banner (.bg-inner1
+   in PageBanner.js) happens to sit behind the logo, but that blob is
+   sized as a percentage of the banner and shrinks too small/misaligned
+   to back the logo at mobile widths — so the dark navy wordmark blends
+   into whatever part of the photo is behind it. Give the logo its own
+   solid white backing here so "Brighter Launchpad" stays fully legible
+   regardless of the photo underneath, and cap its height so the full
+   wordmark fits in the mobile header bar instead of overflowing it. */
+@media (max-width: 1199.98px) {
+  .inner-page #site-logo {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--primary-color1);
+    padding: 8px 12px;
+    border-radius: 10px;
+  }
+
+  .inner-page #site-logo img {
+    max-height: 42px;
+    width: auto;
+  }
+}
+
+/* Programs listing page banner: swap the template's generic placeholder
+   photo for the client-supplied classroom photo, following the same
+   bodyClass-scoped override pattern the template already uses for other
+   pages (see ".shop .tf-page-title .overlay" in shortcodes.css) so this
+   doesn't change the banner photo on every other inner page. */
+.programs-page .tf-page-title .overlay {
+  background: url(/assets/images/thumbnails/programs-header.png) center
+    center no-repeat;
+  background-size: cover;
+  -webkit-mask-image: url(/assets/images/background/mask3.png);
+  mask-image: url(/assets/images/background/mask3.png);
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Infant program detail page banner: same override pattern, scoped to just
+   this page via the extra "program-infant-page" bodyClass (kept alongside
+   the shared "program-detail" class the other program pages also use). */
+.program-infant-page .tf-page-title .overlay {
+  background: url(/assets/images/thumbnails/program-infant-header.png) center
+    center no-repeat;
+  background-size: cover;
+  -webkit-mask-image: url(/assets/images/background/mask3.png);
+  mask-image: url(/assets/images/background/mask3.png);
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* About page banner: same override pattern, scoped to just this page via
+   the extra "about-page" bodyClass. The "about" class alone isn't specific
+   enough to scope on since testimonials.js and time-table.js also use it
+   for their own (unrelated) styling. */
+.about-page .tf-page-title .overlay {
+  background: url(/assets/images/thumbnails/about-header.png) center center
+    no-repeat;
+  background-size: cover;
+  -webkit-mask-image: url(/assets/images/background/mask3.png);
+  mask-image: url(/assets/images/background/mask3.png);
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Franchise page banner: same override pattern, scoped via the page's own
+   "franchise" bodyClass (not shared with any other page). */
+.franchise .tf-page-title .overlay {
+  background: url(/assets/images/thumbnails/franchise-header.png) center
+    center no-repeat;
+  background-size: cover;
+  -webkit-mask-image: url(/assets/images/background/mask3.png);
+  mask-image: url(/assets/images/background/mask3.png);
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Franchise page: "Advantages of Franchising" tile grid. The template's
+   photo-based .sc-faq tiles only ship with three icon images, but this
+   section needs six, so it uses a plain icon+title+description card
+   instead. Scoped to the page's "franchise" bodyClass. */
+.franchise .sc-advantage {
+  background: var(--primary-color1);
+  box-shadow: 0px 10px 60px 0px rgba(218, 218, 218, 0.4);
+  border-radius: 10px;
+  padding: 40px 30px;
+  height: 100%;
+}
+
+.franchise .sc-advantage .icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: var(--primary-color1);
+}
+
+.franchise .sc-advantage h4 {
+  color: var(--primary-color2);
+  margin-bottom: 10px;
+}
+
+.franchise .sc-advantage p {
+  color: var(--primary-color4);
+  font-family: "Mulish", sans-serif;
+  margin: 0;
+}
+
+/* Franchise page: reusable checklist for the "What's Included" and "Who
+   We're Looking For" sections. Same colored, mask-icon checkmark treatment
+   the template already uses inside .sc-about-2 (bg_list.png), generalized
+   here so it isn't tied to that one hero layout. */
+.franchise .tf-check-list {
+  list-style: none;
+  margin: 0 0 26px;
+  padding: 0;
+}
+
+.franchise .tf-check-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.franchise .tf-check-list li i {
+  flex: none;
+  width: 25px;
+  height: 25px;
+  margin-right: 14px;
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--primary-color1);
+  -webkit-mask-image: url(/assets/images/background/bg_list.png);
+  mask-image: url(/assets/images/background/bg_list.png);
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background: var(--primary-color6);
+}
+
+.franchise .tf-check-list li:nth-child(4n + 2) i {
+  background: var(--primary-color3);
+}
+
+.franchise .tf-check-list li:nth-child(4n + 3) i {
+  background: var(--primary-color5);
+}
+
+.franchise .tf-check-list li:nth-child(4n + 4) i {
+  background: var(--primary-color9);
+}
+
+.franchise .tf-check-list p {
+  color: var(--primary-color4);
+  font-family: "Mulish", sans-serif;
+  margin: 0;
+}
+
+/* Franchise page: numbered step timeline for "How It Works". */
+.franchise .sc-step {
+  text-align: center;
+  padding: 0 10px;
+}
+
+.franchise .sc-step .step-number {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary-color2);
+  color: var(--primary-color1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 auto 20px;
+}
+
+.franchise .sc-step h4 {
+  color: var(--primary-color2);
+  margin-bottom: 10px;
+}
+
+.franchise .sc-step p {
+  color: var(--primary-color4);
+  font-family: "Mulish", sans-serif;
+  margin: 0;
+}
+
+/* Franchise page: closing CTA band. */
+.franchise .tf-cta-band {
+  background: var(--primary-color7);
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.franchise .tf-cta-band .cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* FAQ page banner: same override pattern, scoped via the page's own "faq"
+   bodyClass (not shared with any other page). */
+.faq .tf-page-title .overlay {
+  background: url(/assets/images/thumbnails/faq-header.png) center center
+    no-repeat;
+  background-size: cover;
+  -webkit-mask-image: url(/assets/images/background/mask3.png);
+  mask-image: url(/assets/images/background/mask3.png);
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Contact page banner: same override pattern, scoped via the page's own
+   "contact" bodyClass (not shared with any other page). */
+.contact .tf-page-title .overlay {
+  background: url(/assets/images/thumbnails/contact-header.png) center
+    center no-repeat;
+  background-size: cover;
+  -webkit-mask-image: url(/assets/images/background/mask3.png);
+  mask-image: url(/assets/images/background/mask3.png);
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Program detail pages (ProgramDetail.js) reuse the classe-details article +
+   sidebar layout, but the program copy runs much longer than the template's
+   original content, leaving the shorter two-widget sidebar stranded with a
+   large empty gap below it once the article outruns it. Pin the sidebar so
+   it stays visible while the long article scrolls past, matching the effect
+   without touching the shared classe-details page this layout is borrowed
+   from. */
+.tf-program-detail #sidebar.classe-details {
+  position: sticky;
+  top: 120px;
+  align-self: flex-start;
+}
+
 /* Contact page "Our Facility & Location" cards reuse .sc-faq, which is styled
    for small 96px-tall icon graphics (see the FAQ page). Real location photos
    need a proper photo-sized, cropped box instead of overflowing the icon slot. */
@@ -277,6 +631,16 @@ input:focus-visible,
   width: 390px;
   padding-right: 15px;
   white-space: nowrap;
+}
+
+/* On inner pages the nav now sits close to the header's right edge (see
+   #site-header > .nav-wrap above), so the "Location" dropdown — which
+   opens flush with its parent link's left edge by default (left: 0) and
+   is 390px wide — ran off the right side of the viewport. Open it flush
+   with the link's right edge instead so it extends left, back on screen. */
+.inner-page #mainnav .menu > li.menu-item-has-children > .sub-menu {
+  left: auto;
+  right: 0;
 }
 
 /* Mobile Daycare accordion */

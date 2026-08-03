@@ -6,7 +6,7 @@ import Layout from "../src/layouts/Layout";
 
 const About = () => {
   return (
-    <Layout bodyClass={"about"}>
+    <Layout bodyClass={["about", "about-page"]}>
       <PageBanner pageName={"About Us"} />
       <section className="tf-section tf-about">
         <div className="container">

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { sharedContact } from "../../data/locations";
 import {
   About,
+  BlogLink,
   Contact,
   Faq,
   Franchise,
@@ -164,6 +165,9 @@ const MobileMenu = () => {
             </li>
             <li className="menu-item">
               <Faq />
+            </li>
+            <li className="menu-item">
+              <BlogLink />
             </li>
             <li className="inner">
               <Contact />

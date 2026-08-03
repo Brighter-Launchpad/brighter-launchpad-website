@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BeehiivSubscribeForm from "../components/BeehiivSubscribeForm";
 import { locations, sharedContact } from "../data/locations";
 const Footer2 = () => {
   return (
@@ -21,24 +22,8 @@ const Footer2 = () => {
                     Launchpad centre.
                   </p>
                 </div>
-                <div className="subcribe-form fx">
-                  <form
-                    onSubmit={(e) => e.preventDefault()}
-                    action="#"
-                    id="subscribe-form"
-                  >
-                    <label htmlFor="subscribe-email" className="visually-hidden">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="subscribe-email"
-                      placeholder="Email Address"
-                    />
-                    <button className="fl-btn st-7" id="subscribe-button">
-                      <span className="inner">Submit</span>
-                    </button>
-                  </form>
+                <div className="subcribe-form fx" id="subscribe-form">
+                  <BeehiivSubscribeForm />
                 </div>
               </div>
             </div>
@@ -105,12 +90,7 @@ const Footer2 = () => {
                       </Link>
                     </li>
                     <li className="fx">
-                      <Link href="/blog-grid">
-                        <a className="wd-ctm f-mulish">News</a>
-                      </Link>
-                    </li>
-                    <li className="fx">
-                      <Link href="/blog-grid">
+                      <Link href="/blog">
                         <a className="wd-ctm f-mulish">Blog</a>
                       </Link>
                     </li>

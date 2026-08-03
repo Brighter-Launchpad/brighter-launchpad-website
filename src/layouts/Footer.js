@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BeehiivSubscribeForm from "../components/BeehiivSubscribeForm";
 import { locations, sharedContact } from "../data/locations";
 
 const Footer = () => {
@@ -18,19 +19,7 @@ const Footer = () => {
             </div>
             <div className="col-lg-6 col-md-12 col-12">
               <div className="subcribe-form fx" id="subscribe-form">
-                <form action="#" onSubmit={(e) => e.preventDefault()}>
-                  <label htmlFor="subscribe-email" className="visually-hidden">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="subscribe-email"
-                    placeholder="Email Address"
-                  />
-                  <button className="fl-btn st-7" id="subscribe-button">
-                    <span className="inner">Submit</span>
-                  </button>
-                </form>
+                <BeehiivSubscribeForm />
               </div>
             </div>
           </div>
@@ -96,12 +85,7 @@ const Footer = () => {
                       </Link>
                     </li>
                     <li className="fx">
-                      <Link href="/blog-grid">
-                        <a className="wd-ctm f-mulish">News</a>
-                      </Link>
-                    </li>
-                    <li className="fx">
-                      <Link href="/blog-grid">
+                      <Link href="/blog">
                         <a className="wd-ctm f-mulish">Blog</a>
                       </Link>
                     </li>
