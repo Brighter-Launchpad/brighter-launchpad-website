@@ -97,12 +97,12 @@ const Footer2 = () => {
                   </ul>
                 </div>
                 <div className="widget widget-link">
-                  <h4 className="title-widget">Our Branches</h4>
+                  <h4 className="title-widget">Our Locations</h4>
                   <ul className="list-link">
                     {locations.map((location) => (
                       <li className="fx" key={location.id}>
                         <Link href={location.detailUrl}>
-                          <a className="wd-ctm f-mulish">{location.name}</a>
+                          <a className="wd-ctm f-mulish">{location.navName}</a>
                         </Link>
                       </li>
                     ))}

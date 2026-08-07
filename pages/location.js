@@ -89,7 +89,7 @@ const LocationPage = () => {
         <meta property="og:url" content={PAGE_URL} />
         <meta
           property="og:image"
-          content={`${SITE_URL}/assets/images/common/sc-discovery.jpg`}
+          content={`${SITE_URL}/assets/images/common/location-hero-classroom.jpg`}
         />
         <script
           type="application/ld+json"

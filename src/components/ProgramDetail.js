@@ -55,7 +55,7 @@ const ProgramDetail = ({ program, otherPrograms }) => {
                   )}
                   {i === 1 && program.sectionImage && (
                     <div className="image m-t30 m-b30">
-                      <img src={program.sectionImage} alt="" />
+                      <img src={program.sectionImage} alt={program.name} />
                     </div>
                   )}
                 </div>

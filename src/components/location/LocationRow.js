@@ -19,7 +19,7 @@ const LocationRow = ({ location, reverse }) => {
         />
       </div>
       <div className="location-row-content">
-        <h3>{location.name}</h3>
+        <h3>{location.navName}</h3>
         <p className="location-row-desc">{location.description}</p>
         <ul className="location-row-meta">
           <li>
@@ -27,7 +27,7 @@ const LocationRow = ({ location, reverse }) => {
               href={location.directionsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Open directions to ${location.name} in Google Maps`}
+              aria-label={`Open directions to ${location.navName} in Google Maps`}
             >
               <i className="far fa-map-marker-alt" aria-hidden="true" />
               {location.address}
@@ -36,7 +36,7 @@ const LocationRow = ({ location, reverse }) => {
           <li>
             <a
               href={`tel:${location.phoneTel}`}
-              aria-label={`Call ${location.name}`}
+              aria-label={`Call ${location.navName}`}
             >
               <i className="fal fa-phone" aria-hidden="true" />
               {location.phone}
@@ -45,7 +45,7 @@ const LocationRow = ({ location, reverse }) => {
           <li>
             <a
               href={`mailto:${location.email}`}
-              aria-label={`Email ${location.name}`}
+              aria-label={`Email ${location.navName}`}
             >
               <i className="far fa-envelope" aria-hidden="true" />
               {location.email}

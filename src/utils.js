@@ -12,7 +12,7 @@ export const activeNavMenu = (path) => {
           nav.pathname === "/location" ||
           nav.pathname === "/faq"
         ) {
-          nav.parentElement.className = "current-menu-item";
+          nav.parentElement.classList.add("current-menu-item");
         } else {
           nav.parentElement.className = "inner-current-item";
           !document.querySelector("body").className.includes("style") &&

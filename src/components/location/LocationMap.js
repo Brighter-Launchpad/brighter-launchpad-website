@@ -42,7 +42,7 @@ const LocationMap = () => {
                     aria-pressed={selectedId === location.id}
                     onClick={() => setSelectedId(location.id)}
                   >
-                    <strong>{location.name}</strong>
+                    <strong>{location.navName}</strong>
                     <span>{location.address}</span>
                   </button>
                 ))}
@@ -59,7 +59,7 @@ const LocationMap = () => {
                     <a
                       href={`tel:${selected.phoneTel}`}
                       className="location-text-link"
-                      aria-label={`Call ${selected.name}`}
+                      aria-label={`Call ${selected.navName}`}
                     >
                       Call This Centre
                     </a>

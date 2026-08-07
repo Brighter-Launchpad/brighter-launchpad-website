@@ -8,7 +8,7 @@ const otherPrograms = programs.filter((p) => p.slug !== program.slug);
 
 const ProgramAfterSchool = () => {
   return (
-    <Layout bodyClass={"program-detail"}>
+    <Layout bodyClass={["program-detail", "program-after-school-page"]}>
       <PageBanner pageName={program.name} />
       <ProgramDetail program={program} otherPrograms={otherPrograms} />
     </Layout>

@@ -27,6 +27,29 @@
   max-width: 100%;
 }
 
+/* Testimonial cards (TestimonialSlider): the template's decorative card
+   background (bg-slider-fb.png) is a fixed 433x387 PNG that never
+   stretches, and ".coustom-padding" was never actually given any padding
+   in the template's own CSS — unnoticeable with the original one-line
+   placeholder quote, but real parent testimonials run several sentences
+   and were overflowing past the drawn border with text flush against the
+   edges. Let the card grow with its content, stretch the border art to
+   match, and give the text real breathing room inside it. */
+.item-fb {
+  height: auto;
+  min-height: 387px;
+  background-size: 100% 100%;
+}
+
+.item-fb .coustom-padding {
+  padding: 46px 40px 42px;
+}
+
+.item-fb .wrap p {
+  font-size: 18px;
+  line-height: 30px;
+}
+
 /* Inner-page header (Header.js): the search icon, hotline number, and
    hamburger/sidebar toggle have been removed entirely, and the nav now
    sits in the same row as the logo instead of on its own row below —
@@ -151,6 +174,54 @@
 .program-infant-page .tf-page-title .overlay {
   background: url(/assets/images/thumbnails/program-infant-header.png) center
     center no-repeat;
+  background-size: cover;
+  -webkit-mask-image: url(/assets/images/background/mask3.png);
+  mask-image: url(/assets/images/background/mask3.png);
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Toddler/Preschool program detail page banner: same override pattern,
+   scoped to just this page via the extra "program-toddler-preschool-page"
+   bodyClass (kept alongside the shared "program-detail" class the other
+   program pages also use). */
+.program-toddler-preschool-page .tf-page-title .overlay {
+  background: url(/assets/images/thumbnails/program-toddler-preschool-header.png)
+    center center no-repeat;
+  background-size: cover;
+  -webkit-mask-image: url(/assets/images/background/mask3.png);
+  mask-image: url(/assets/images/background/mask3.png);
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* After-School program detail page banner: same override pattern, scoped
+   to just this page via the extra "program-after-school-page" bodyClass
+   (kept alongside the shared "program-detail" class the other program
+   pages also use). */
+.program-after-school-page .tf-page-title .overlay {
+  background: url(/assets/images/thumbnails/program-after-school-header.png)
+    center center no-repeat;
+  background-size: cover;
+  -webkit-mask-image: url(/assets/images/background/mask3.png);
+  mask-image: url(/assets/images/background/mask3.png);
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Summer Camp program detail page banner: same override pattern, scoped
+   to just this page via the extra "program-summer-camp-page" bodyClass
+   (kept alongside the shared "program-detail" class the other program
+   pages also use). */
+.program-summer-camp-page .tf-page-title .overlay {
+  background: url(/assets/images/thumbnails/program-summer-camp-header.png)
+    center center no-repeat;
   background-size: cover;
   -webkit-mask-image: url(/assets/images/background/mask3.png);
   mask-image: url(/assets/images/background/mask3.png);
@@ -345,6 +416,23 @@
 .contact .tf-page-title .overlay {
   background: url(/assets/images/thumbnails/contact-header.png) center
     center no-repeat;
+  background-size: cover;
+  -webkit-mask-image: url(/assets/images/background/mask3.png);
+  mask-image: url(/assets/images/background/mask3.png);
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Blog listing page banner: same override pattern, scoped via the page's own
+   "blog-listing-page" bodyClass rather than the plain "blog" class, since
+   "blog" is also shared with the individual blog post pages (blog.js sets
+   ["blog", "blog-listing-page"]; the post pages set ["blog", "blog-post-page"]
+   and intentionally keep the template's default banner). */
+.blog-listing-page .tf-page-title .overlay {
+  background: url(/assets/images/thumbnails/blog-header.png) center center
+    no-repeat;
   background-size: cover;
   -webkit-mask-image: url(/assets/images/background/mask3.png);
   mask-image: url(/assets/images/background/mask3.png);
@@ -621,14 +709,14 @@ input:focus-visible,
 }
 
 /* Daycare dropdown (desktop) reuses existing .sub-menu / .menu-item-has-children styles.
-   Location names are long ("Brighter Launchpad Minto, Theatre Street"), so the dropdown
-   is widened past the theme's default 200px and the link gets right padding — otherwise
-   nowrap text overflows past the dropdown's white background. */
+   Location names are long ("Brighter Launchpad Fredericton, Brookside Drive"), so the
+   dropdown is widened past the theme's default 200px and the link gets right padding —
+   otherwise nowrap text overflows past the dropdown's white background. */
 #mainnav .menu > li.menu-item-has-children > .sub-menu {
-  width: 390px;
+  width: 440px;
 }
 #mainnav .menu > li.menu-item-has-children > .sub-menu li a {
-  width: 390px;
+  width: 440px;
   padding-right: 15px;
   white-space: nowrap;
 }

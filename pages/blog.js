@@ -6,7 +6,7 @@ import { blogPosts } from "../src/data/blog";
 
 const Blog = () => {
   return (
-    <Layout bodyClass={"blog"}>
+    <Layout bodyClass={["blog", "blog-listing-page"]}>
       <PageBanner pageName={"Blog"} pageTitle={"News & Advice From Our Team"} />
       <section className="tf-section tf-blog-grid">
         <div className="container">

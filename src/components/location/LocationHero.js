@@ -72,10 +72,10 @@ const LocationHero = () => {
           </div>
           <div className="hero-image-wrap">
             <img
-              src="assets/images/common/sc-discovery.jpg"
-              alt="A child smiling while playing at a Brighter Launchpad centre"
-              width={720}
-              height={540}
+              src="assets/images/common/location-hero-classroom.jpg"
+              alt="A bright, welcoming Brighter Launchpad classroom ready for learning and play"
+              width={1200}
+              height={900}
               loading="eager"
             />
           </div>

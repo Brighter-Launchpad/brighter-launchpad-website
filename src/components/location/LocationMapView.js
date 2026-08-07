@@ -44,7 +44,7 @@ const LocationMapView = ({ locations, selectedId, onSelect }) => {
           position={[location.latitude, location.longitude]}
           icon={buildIcon(location.id === selectedId)}
           eventHandlers={{ click: () => onSelect(location.id) }}
-          alt={location.name}
+          alt={location.navName}
         />
       ))}
       <PanToSelected

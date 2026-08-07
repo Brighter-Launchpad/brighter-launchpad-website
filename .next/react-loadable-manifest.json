@@ -4,5 +4,11 @@
     "files": [
       "static/chunks/src_components_Counter_js.js"
     ]
+  },
+  "../src/components/location/LocationMap.js -> ./LocationMapView": {
+    "id": "../src/components/location/LocationMap.js -> ./LocationMapView",
+    "files": [
+      "static/chunks/src_components_location_LocationMapView_js.js"
+    ]
   }
 }

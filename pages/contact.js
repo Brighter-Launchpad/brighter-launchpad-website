@@ -161,7 +161,10 @@ const Contact = () => {
                 data-wow-delay="0.3ms"
                 data-wow-duration="1200ms"
               >
-                <img src="assets/images/common/01-contact.jpg" alt="" />
+                <img
+                  src="assets/images/common/01-contact.jpg"
+                  alt="Children playing together at a Brighter Launchpad centre"
+                />
               </div>
             </div>
           </div>

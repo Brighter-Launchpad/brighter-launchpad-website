@@ -29,8 +29,8 @@ export const programs = [
       setting: "Dedicated Infant Room",
     },
     cardImage: "assets/images/common/program-infant-card.png",
-    heroImage: "assets/images/common/sc-program1.jpg",
-    sectionImage: "assets/images/common/sc-program7.jpg",
+    heroImage: "assets/images/common/program-infant-hero.jpg",
+    sectionImage: "assets/images/common/program-infant-section.jpg",
     sections: [
       {
         heading: "About the program",
@@ -94,8 +94,8 @@ export const programs = [
       setting: "Choice-Based Learning Areas",
     },
     cardImage: "assets/images/common/program-toddler-preschool-card.png",
-    heroImage: "assets/images/common/sc-program2.jpg",
-    sectionImage: "assets/images/common/sc-program8.jpg",
+    heroImage: "assets/images/common/program-toddler-preschool-hero.jpg",
+    sectionImage: "assets/images/common/program-toddler-preschool-section.jpg",
     sections: [
       {
         heading: "About the program",
@@ -174,8 +174,8 @@ export const programs = [
       setting: "Mixed-Age Group",
     },
     cardImage: "assets/images/common/program-after-school-card.png",
-    heroImage: "assets/images/common/sc-program5.jpg",
-    sectionImage: "assets/images/common/sc-program9.jpg",
+    heroImage: "assets/images/common/program-after-school-hero.jpg",
+    sectionImage: "assets/images/common/program-after-school-section.jpg",
     sections: [
       {
         heading: "About the program",
@@ -240,8 +240,8 @@ export const programs = [
       setting: "Weekly Themed Sessions",
     },
     cardImage: "assets/images/common/program-summer-camp-card.png",
-    heroImage: "assets/images/common/sc-program6.jpg",
-    sectionImage: "assets/images/common/sc-program10.jpg",
+    heroImage: "assets/images/common/program-summer-camp-hero.jpg",
+    sectionImage: "assets/images/common/program-summer-camp-section.jpg",
     sections: [
       {
         heading: "About the program",
