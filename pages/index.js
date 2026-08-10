@@ -6,6 +6,7 @@ import PhotoGallerySlider from "../src/components/PhotoGallerySlider";
 import TestimonialSlider from "../src/components/TestimonialSlider";
 import TfCounter from "../src/components/TfCounter";
 import { blogPosts } from "../src/data/blog";
+import { teachers } from "../src/data/teachers";
 import {
   LeftArrow,
   LeftArrowWhite,
@@ -443,78 +444,29 @@ const Index = () => {
                     }}
                     className="owl-carousel owl-theme none dots-none"
                   >
-                    <SwiperSlide>
-                      <div
-                        className="sc-employee wow fadeInUp animated"
-                        data-wow-delay="0.3ms"
-                        data-wow-duration="800ms"
-                      >
-                        <div className="box-feature">
-                          <img
-                            src="assets/images/common/sc-employee-1.jpg"
-                            alt="Image"
-                          />
+                    {teachers.map((teacher, i) => (
+                      <SwiperSlide key={teacher.name}>
+                        <div
+                          className="sc-employee wow fadeInUp animated"
+                          data-wow-delay="0.3ms"
+                          data-wow-duration="800ms"
+                        >
+                          <div className="box-feature">
+                            <img src={teacher.image} alt={teacher.name} />
+                          </div>
+                          <div className={`box-content st-${(i % 8) + 1}`}>
+                            <h4 className="name">
+                              <Link href="/teacher-details">
+                                <a className="clr-pri-1">{teacher.name}</a>
+                              </Link>
+                            </h4>
+                            <p className="sub f-mulish clr-pri-1">
+                              {teacher.position}
+                            </p>
+                          </div>
                         </div>
-                        <div className="box-content st-1">
-                          <h4 className="name">
-                            <Link href="/teacher-details">
-                              <a className="clr-pri-1">Meagan Agnew</a>
-                            </Link>
-                          </h4>
-                          <p className="sub f-mulish clr-pri-1">
-                            Administrator
-                          </p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div
-                        className="sc-employee wow fadeInUp animated"
-                        data-wow-delay="0.3ms"
-                        data-wow-duration="1000ms"
-                      >
-                        <div className="box-feature">
-                          <img
-                            src="assets/images/common/sc-employee-2.jpg"
-                            alt="Image"
-                          />
-                        </div>
-                        <div className="box-content st-2">
-                          <h4 className="name">
-                            <Link href="/teacher-details">
-                              <a className="clr-pri-1">Chelsey Carten</a>
-                            </Link>
-                          </h4>
-                          <p className="sub f-mulish clr-pri-1">
-                            Toddler Educator (2 Year Olds)
-                          </p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <div
-                        className="sc-employee wow fadeInUp animated"
-                        data-wow-delay="0.3ms"
-                        data-wow-duration="1200ms"
-                      >
-                        <div className="box-feature">
-                          <img
-                            src="assets/images/common/sc-employee-3.jpg"
-                            alt="Image"
-                          />
-                        </div>
-                        <div className="box-content st-3">
-                          <h4 className="name">
-                            <Link href="/teacher-details">
-                              <a className="clr-pri-1">Cheryl Quigley</a>
-                            </Link>
-                          </h4>
-                          <p className="sub f-mulish clr-pri-1">
-                            Support Educator
-                          </p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
+                      </SwiperSlide>
+                    ))}
                   </Swiper>
                 </div>
                 {/*/.themesflat-carousel*/}

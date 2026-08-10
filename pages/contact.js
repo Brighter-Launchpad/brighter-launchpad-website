@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageBanner from "../src/components/PageBanner";
+import SocialLinks from "../src/components/SocialLinks";
 import { LeftArrow, RightArrow } from "../src/Icons";
 import Layout from "../src/layouts/Layout";
 import { locations, sharedContact } from "../src/data/locations";
@@ -153,6 +154,7 @@ const Contact = () => {
                     </h4>
                   </div>
                 </div>
+                <SocialLinks className="contact-social-links" />
               </div>
             </div>
             <div className="col-md-7">

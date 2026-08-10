@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BeehiivSubscribeForm from "../components/BeehiivSubscribeForm";
+import SocialLinks from "../components/SocialLinks";
 import { locations, sharedContact } from "../data/locations";
 
 const Footer = () => {
@@ -55,6 +56,7 @@ const Footer = () => {
                     curiosity, we provide a welcoming space where little
                     learners feel safe, supported, and excited to grow.
                   </p>
+                  <SocialLinks className="footer-social-links" />
                 </div>
                 <div className="widget widget-link">
                   <h4 className="title-widget">Useful Links</h4>

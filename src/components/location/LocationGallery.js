@@ -2,44 +2,74 @@ import { LeftArrow, RightArrow } from "../../Icons";
 
 const GALLERY_ITEMS = [
   {
-    image: "assets/images/common/sc-gallery-1.jpg",
-    alt: "Bright, colourful classroom set up for the day",
+    image: "assets/images/common/gallery-climbing-wall-1.png",
+    alt: "Colourful indoor climbing wall with a Believe, Climb, Achieve sign",
     size: "g-wide",
   },
   {
-    image: "assets/images/common/sc-gallery-2.jpg",
-    alt: "Children working on a creative art activity",
+    image: "assets/images/common/gallery-classroom-bright.png",
+    alt: "Bright, sunlit classroom with tables set up for activities",
     size: "g-square",
   },
   {
-    image: "assets/images/common/sc-gallery-3.jpg",
-    alt: "Cozy reading area with books and cushions",
+    image: "assets/images/common/gallery-reading-corner.png",
+    alt: "Cozy reading corner with cushions and a bookshelf",
     size: "g-tall",
   },
   {
-    image: "assets/images/common/sc-gallery-6.jpg",
-    alt: "Children enjoying outdoor play",
+    image: "assets/images/common/gallery-play-kitchen.png",
+    alt: "Play kitchen and activity corner",
     size: "g-small",
   },
   {
-    image: "assets/images/common/sc-gallery-7.jpg",
-    alt: "Educator supporting a child during an activity",
+    image: "assets/images/common/gallery-nap-nook.png",
+    alt: "Cozy nap and rest area with soft toys",
     size: "g-small",
   },
   {
-    image: "assets/images/common/sc-gallery-8.jpg",
-    alt: "Group of children learning together",
+    image: "assets/images/common/gallery-classroom-mural.png",
+    alt: "Classroom with a colourful climbing wall mural and activity tables",
     size: "g-square",
   },
   {
-    image: "assets/images/common/sc-gallery-9.jpg",
-    alt: "A quiet, calm corner for rest and reflection",
+    image: "assets/images/common/gallery-classroom-fence.png",
+    alt: "Spacious classroom with a picket fence play divider",
     size: "g-wide",
   },
   {
-    image: "assets/images/common/img-courses-1.jpg",
-    alt: "Child leading their own hands-on exploration",
+    image: "assets/images/common/gallery-climbing-wall-2.png",
+    alt: "Colourful climbing wall with activity tables nearby",
     size: "g-square",
+  },
+  {
+    image: "assets/images/common/gallery-cubby-hallway.png",
+    alt: "Cubby area with a hopscotch floor game",
+    size: "g-small",
+  },
+  {
+    image: "assets/images/common/gallery-classroom-green.png",
+    alt: "Classroom activity table with a craft display wall",
+    size: "g-small",
+  },
+  {
+    image: "assets/images/common/gallery-sensory-corner.png",
+    alt: "Colourful feelings and sensory wall with a cozy beanbag corner",
+    size: "g-tall",
+  },
+  {
+    image: "assets/images/common/gallery-toddler-sensory-wall.png",
+    alt: "Toddler classroom with a sensory wall and storage cubbies",
+    size: "g-square",
+  },
+  {
+    image: "assets/images/common/gallery-classroom-round-tables.png",
+    alt: "Classroom with round activity tables and toy storage",
+    size: "g-wide",
+  },
+  {
+    image: "assets/images/common/gallery-office-hallway.png",
+    alt: "Centre hallway leading to classrooms",
+    size: "g-small",
   },
 ];
 

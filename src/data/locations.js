@@ -152,6 +152,11 @@ export const sharedContact = {
   phone: SHARED_PHONE,
   phoneTel: SHARED_PHONE_TEL,
   email: SHARED_EMAIL,
+  social: {
+    facebook: "https://www.facebook.com/share/1C5su82RHf/",
+    instagram: "https://www.instagram.com/brighterlaunchpad.ca",
+    linkedin: "https://www.linkedin.com/in/brighter-launchpad-5b362b425",
+  },
 };
 
 export default locations;
