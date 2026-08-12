@@ -151,6 +151,22 @@
   }
 }
 
+/* Homepage mobile header (MobileMenu.js, shown below the "xl" breakpoint):
+   unlike .inner-page, #site-logo has no width cap here, so the logo
+   renders at its natural ~364px width — wide enough to overlap the
+   hamburger button (.btn-menu, pinned to the header's right edge) on
+   any mobile viewport. Shrink it 20% and nudge it left for clearance. */
+@media (max-width: 1199.98px) {
+  .main #site-logo {
+    margin-left: -8px;
+  }
+
+  .main #site-logo img {
+    max-width: 291px;
+    height: auto;
+  }
+}
+
 /* Programs listing page banner: swap the template's generic placeholder
    photo for the client-supplied classroom photo, following the same
    bodyClass-scoped override pattern the template already uses for other
@@ -222,6 +238,20 @@
 .program-summer-camp-page .tf-page-title .overlay {
   background: url(/assets/images/thumbnails/program-summer-camp-header.png)
     center center no-repeat;
+  background-size: cover;
+  -webkit-mask-image: url(/assets/images/background/mask3.png);
+  mask-image: url(/assets/images/background/mask3.png);
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Gallery page banner: same override pattern, scoped via the page's own
+   "gallery" bodyClass (not shared with any other page). */
+.gallery .tf-page-title .overlay {
+  background: url(/assets/images/thumbnails/gallery-header.png) center
+    center no-repeat;
   background-size: cover;
   -webkit-mask-image: url(/assets/images/background/mask3.png);
   mask-image: url(/assets/images/background/mask3.png);

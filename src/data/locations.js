@@ -111,7 +111,7 @@ export const locations = [
     phone: SHARED_PHONE,
     phoneTel: SHARED_PHONE_TEL,
     email: SHARED_EMAIL,
-    image: "assets/images/thumbnails/tiny-bubbles-location.jpg",
+    image: "assets/images/thumbnails/tiny-bubbles-location.png",
     imageAlt: "Tiny Bubbles Early Learning Center of Excellence Inc.",
     description:
       "A nurturing centre of excellence where every child's early learning journey is met with care and expertise.",
@@ -135,7 +135,7 @@ export const locations = [
     phone: SHARED_PHONE,
     phoneTel: SHARED_PHONE_TEL,
     email: SHARED_EMAIL,
-    image: "assets/images/thumbnails/sunny-days-location.jpg",
+    image: "assets/images/thumbnails/sunny-days-location.png",
     imageAlt: "Sunny Days and Nights Children's Center Inc.",
     description:
       "A bright, welcoming centre where children enjoy sunny days full of play, learning, and new friendships.",

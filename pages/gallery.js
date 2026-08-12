@@ -3,6 +3,65 @@ import PhotoGallerySlider from "../src/components/PhotoGallerySlider";
 import { LeftArrow, RightArrow } from "../src/Icons";
 import Layout from "../src/layouts/Layout";
 
+const GALLERY_GRID_ITEMS = [
+  {
+    image: "assets/images/common/gallery-climbing-wall-1.png",
+    title: "Climbing Wall",
+  },
+  {
+    image: "assets/images/common/gallery-classroom-bright.png",
+    title: "Bright Classroom",
+  },
+  {
+    image: "assets/images/common/gallery-reading-corner.png",
+    title: "Reading Corner",
+  },
+  {
+    image: "assets/images/common/gallery-play-kitchen.png",
+    title: "Play Kitchen",
+  },
+  {
+    image: "assets/images/common/gallery-nap-nook.png",
+    title: "Nap Nook",
+  },
+  {
+    image: "assets/images/common/gallery-classroom-mural.png",
+    title: "Classroom Mural",
+  },
+  {
+    image: "assets/images/common/gallery-classroom-fence.png",
+    title: "Classroom & Play",
+  },
+  {
+    image: "assets/images/common/gallery-climbing-wall-2.png",
+    title: "Climbing Wall",
+  },
+  {
+    image: "assets/images/common/gallery-cubby-hallway.png",
+    title: "Cubby Hallway",
+  },
+  {
+    image: "assets/images/common/gallery-classroom-green.png",
+    title: "Craft Corner",
+  },
+  {
+    image: "assets/images/common/gallery-sensory-corner.png",
+    title: "Sensory Corner",
+  },
+  {
+    image: "assets/images/common/gallery-toddler-sensory-wall.png",
+    title: "Toddler Classroom",
+  },
+  {
+    image: "assets/images/common/gallery-classroom-round-tables.png",
+    title: "Activity Tables",
+  },
+  {
+    image: "assets/images/common/gallery-office-hallway.png",
+    title: "Centre Hallway",
+  },
+];
+
 const Gallery = () => {
   return (
     <Layout bodyClass={"gallery"}>
@@ -23,121 +82,31 @@ const Gallery = () => {
                 </h2>
               </div>
             </div>
-            <div className="col-xl-4 col-lg-4 col-md-4 col-12">
+            {GALLERY_GRID_ITEMS.map((item, i) => (
               <div
-                className="sc-gallery wow fadeIn animated"
-                data-wow-delay="0.3ms"
-                data-wow-duration="1200ms"
+                className="col-xl-4 col-lg-4 col-md-6 col-12"
+                key={item.image}
               >
-                <div className="box-feature active">
-                  <img
-                    src="assets/images/common/sc-gallery-1.jpg"
-                    alt="Image"
-                  />
-                  <div className="overlay" />
-                  <div className="box-content">
-                    <h5 className="title">
-                      <a href="#" className=" clr-pri-2">
-                        Outdoor &amp; Gaming
-                      </a>
-                    </h5>
-                    <p className="f-rubik">kindergarten</p>
+                <div
+                  className="sc-gallery wow fadeIn animated"
+                  data-wow-delay="0.3ms"
+                  data-wow-duration="1200ms"
+                >
+                  <div className={`box-feature${i === 0 ? " active" : ""}`}>
+                    <img src={item.image} alt={item.title} />
+                    <div className="overlay" />
+                    <div className="box-content">
+                      <h5 className="title">
+                        <a href="#" className=" clr-pri-2">
+                          {item.title}
+                        </a>
+                      </h5>
+                      <p className="f-rubik">Brighter Launchpad</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-xl-4 col-lg-4 col-md-4 col-12">
-              <div
-                className="sc-gallery wow fadeIn animated"
-                data-wow-delay="0.3ms"
-                data-wow-duration="1200ms"
-              >
-                <div className="box-feature">
-                  <img
-                    src="assets/images/common/sc-gallery-2.jpg"
-                    alt="Image"
-                  />
-                  <div className="overlay" />
-                  <div className="box-content">
-                    <h5 className="title">
-                      <a href="#" className=" clr-pri-2">
-                        Outdoor &amp; Gaming
-                      </a>
-                    </h5>
-                    <p className="f-rubik">kindergarten</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-4 col-md-4 col-12">
-              <div
-                className="sc-gallery wow fadeIn animated"
-                data-wow-delay="0.3ms"
-                data-wow-duration="1200ms"
-              >
-                <div className="box-feature">
-                  <img
-                    src="assets/images/common/sc-gallery-3.jpg"
-                    alt="Image"
-                  />
-                  <div className="overlay" />
-                  <div className="box-content">
-                    <h5 className="title">
-                      <a href="#" className=" clr-pri-2">
-                        Outdoor &amp; Gaming
-                      </a>
-                    </h5>
-                    <p className="f-rubik">kindergarten</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-6 col-md-6 col-12">
-              <div
-                className="sc-gallery mg-bt wow fadeIn animated"
-                data-wow-delay="0.3ms"
-                data-wow-duration="1200ms"
-              >
-                <div className="box-feature">
-                  <img
-                    src="assets/images/common/sc-gallery-4.jpg"
-                    alt="Image"
-                  />
-                  <div className="overlay" />
-                  <div className="box-content">
-                    <h5 className="title">
-                      <a href="#" className=" clr-pri-2">
-                        Outdoor &amp; Gaming
-                      </a>
-                    </h5>
-                    <p className="f-rubik">kindergarten</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-6 col-md-6 col-12">
-              <div
-                className="sc-gallery mgbt-0 wow fadeIn animated"
-                data-wow-delay="0.3ms"
-                data-wow-duration="1200ms"
-              >
-                <div className="box-feature">
-                  <img
-                    src="assets/images/common/sc-gallery-5.jpg"
-                    alt="Image"
-                  />
-                  <div className="overlay" />
-                  <div className="box-content">
-                    <h5 className="title">
-                      <a href="#" className=" clr-pri-2">
-                        Outdoor &amp; Gaming
-                      </a>
-                    </h5>
-                    <p className="f-rubik">kindergarten</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
