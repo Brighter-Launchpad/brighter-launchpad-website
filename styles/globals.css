@@ -67,6 +67,11 @@
   margin: 0;
 }
 
+.inner-page #site-header > #site-logo {
+  display: inline-flex;
+  align-items: center;
+}
+
 .inner-page #site-header > .nav-wrap {
   /* Overrides ".inner-page .nav-wrap" (style.css), which sets left:18.7%
      and transform:translateY(-50%) for the old layout — reset "right" and
@@ -127,22 +132,13 @@
 }
 
 /* Inner pages' mobile header (MobileMenu.js, shown below the "xl"
-   breakpoint) renders the logo directly over the dark page-title photo.
-   On desktop the decorative white blob from the page banner (.bg-inner1
-   in PageBanner.js) happens to sit behind the logo, but that blob is
-   sized as a percentage of the banner and shrinks too small/misaligned
-   to back the logo at mobile widths — so the dark navy wordmark blends
-   into whatever part of the photo is behind it. Give the logo its own
-   solid white backing here so "Brighter Launchpad" stays fully legible
-   regardless of the photo underneath, and cap its height so the full
-   wordmark fits in the mobile header bar instead of overflowing it. */
+   breakpoint): cap the logo height so the full wordmark fits in the
+   mobile header bar instead of overflowing it. Background stays
+   transparent, so the logo sits directly on the page-title photo. */
 @media (max-width: 1199.98px) {
   .inner-page #site-logo {
     display: inline-flex;
     align-items: center;
-    background-color: var(--primary-color1);
-    padding: 8px 12px;
-    border-radius: 10px;
   }
 
   .inner-page #site-logo img {
@@ -1288,6 +1284,203 @@ input:focus-visible,
 .preload-logo {
   background-size: contain;
   margin: -40px 0 0 -40px;
+}
+
+/* Homepage online registration form feedback */
+.form-status-message {
+  width: 100%;
+  margin: 16px 0 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+.form-status-message.success {
+  color: #1f9d55;
+}
+.form-status-message.error {
+  color: #e53e3e;
+}
+
+/* Homepage registration form (RegistrationForm.js): the template only
+   ever styled `.fl-register input[type="text"]` (font-size, padding,
+   border) — the Email/Phone fields added here use type="email"/"tel"
+   for proper mobile keyboards and browser validation, which don't match
+   that selector and fell back to a different theme default (visible
+   border, smaller font, different padding), so they looked out of place
+   next to Full Name. Give them the exact same treatment. */
+.fl-register input[type="email"],
+.fl-register input[type="tel"] {
+  font-family: "Salsa", sans-serif;
+  font-size: 24px;
+  margin-bottom: 0;
+  border: none;
+  padding: 26px 17px;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+  color: var(--primary-color2);
+}
+
+/* The template only ever styled `.fl-register input[type="text"]`
+   (font-size, padding, border) — the Location field added here is a
+   real <select>, which doesn't match that selector and fell back to
+   browser-default sizing, font, and padding, so it looked visually
+   broken next to the other fields. Give it the same treatment, plus
+   width:100% since a <select> doesn't stretch to fill its container
+   the way these inputs do. */
+.fl-register select {
+  width: 100%;
+  height: 100%;
+  font-family: "Salsa", sans-serif;
+  font-size: 24px;
+  margin-bottom: 0;
+  border: none;
+  padding: 26px 17px;
+  color: var(--primary-color2);
+  background-color: transparent;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Shared lead-capture modal (BookTourModal.js, FranchiseInquiryModal.js):
+   reuses the Magnific Popup scaffolding (.mfp-bg/.mfp-wrap/.mfp-container/
+   .mfp-content) already loaded for VideoPopup.js, but that CSS only ever
+   styled an iframe holder — .mfp-content itself has no background/padding/
+   sizing of its own, and .mfp-close defaults to white text (meant to sit
+   on a dark image backdrop). Give the form its own white card and darken
+   the close button to suit. */
+.lead-mfp-wrap {
+  z-index: 100000;
+}
+
+.lead-modal {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px 36px;
+  width: 90vw;
+  max-width: 480px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.lead-modal .mfp-close {
+  color: var(--primary-color2);
+  opacity: 1;
+  padding: 0;
+  right: 6px;
+  top: 6px;
+}
+
+.lead-modal-title {
+  color: var(--primary-color2);
+  margin-bottom: 8px;
+}
+
+.lead-modal-sub {
+  font-family: "Mulish", sans-serif;
+  color: var(--primary-color4);
+  margin-bottom: 24px;
+}
+
+.lead-form-section-title {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--primary-color2);
+  margin: 28px 0 14px;
+}
+
+.lead-form-section-title-first {
+  margin-top: 0;
+}
+
+.lead-form-row {
+  margin-bottom: 18px;
+}
+
+.lead-form-row label {
+  display: block;
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--primary-color2);
+  margin-bottom: 6px;
+}
+
+.lead-form-row input,
+.lead-form-row select,
+.lead-form-row textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #e8ebf0;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-family: "Mulish", sans-serif;
+  font-size: 15px;
+  color: var(--primary-color2);
+  background-color: #fff;
+}
+
+.lead-form-row textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.lead-form-row select[multiple] {
+  padding: 6px;
+  height: auto;
+}
+
+.lead-form-row select[multiple] option {
+  padding: 6px 8px;
+}
+
+.lead-form-choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}
+
+.lead-form-choice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--primary-color2);
+  cursor: pointer;
+}
+
+.lead-form-choice input {
+  width: auto;
+  margin: 0;
+  cursor: pointer;
+}
+
+.lead-form-row-hint {
+  font-family: "Mulish", sans-serif;
+  font-size: 12px;
+  color: var(--primary-color4);
+  margin-top: 6px;
+}
+
+.lead-form-row-split {
+  display: flex;
+  gap: 16px;
+}
+
+.lead-form-row-split > div {
+  flex: 1;
+}
+
+.lead-submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
 }
 
 /* Reduced motion

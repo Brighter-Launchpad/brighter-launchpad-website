@@ -20,6 +20,7 @@
     "react-dom": "17.0.2",
     "react-leaflet": "^3.2.5",
     "react-visibility-sensor": "^5.1.1",
+    "resend": "^6.19.0",
     "swiper": "^8.0.7",
     "wowjs": "^1.1.3"
   },

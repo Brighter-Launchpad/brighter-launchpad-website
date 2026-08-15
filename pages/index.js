@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import ApplyChildModal from "../src/components/ApplyChildModal";
+import BookTourModal from "../src/components/BookTourModal";
+import FranchiseInquiryModal from "../src/components/FranchiseInquiryModal";
 import LatestProgramSlider from "../src/components/LatestProgramSlider";
 import PhotoGallerySlider from "../src/components/PhotoGallerySlider";
+import RegistrationForm from "../src/components/RegistrationForm";
 import TestimonialSlider from "../src/components/TestimonialSlider";
 import TfCounter from "../src/components/TfCounter";
 import { blogPosts } from "../src/data/blog";
@@ -81,12 +85,12 @@ const Index = () => {
                             </li>
                           </ul>
                           <div className="box-btn">
-                            <a href="contact/" className="fl-btn st-12">
-                              <span className="inner">Contact Us</span>
-                            </a>
-                            <Link href="/about">
+                            <BookTourModal className="fl-btn st-12">
+                              <span className="inner">Book A Tour</span>
+                            </BookTourModal>
+                            <Link href="/location">
                               <a className="fl-btn st-1">
-                                <span className="inner">learn more</span>
+                                <span className="inner">our locations</span>
                               </a>
                             </Link>
                           </div>
@@ -144,16 +148,12 @@ const Index = () => {
                             </li>
                           </ul>
                           <div className="box-btn">
-                            <Link href="/contact">
-                              <a className="fl-btn st-12">
-                                <span className="inner">Enrol Your Child</span>
-                              </a>
-                            </Link>
-                            <Link href="/franchise">
-                              <a className="fl-btn st-1">
-                                <span className="inner">Own a Franchise</span>
-                              </a>
-                            </Link>
+                            <ApplyChildModal className="fl-btn st-12">
+                              <span className="inner">Apply Your Child</span>
+                            </ApplyChildModal>
+                            <FranchiseInquiryModal className="fl-btn st-1">
+                              <span className="inner">Own a Franchise</span>
+                            </FranchiseInquiryModal>
                           </div>
                         </div>
                         <div className="box-feature">
@@ -705,74 +705,7 @@ const Index = () => {
                 data-wow-delay="0.3ms"
                 data-wow-duration="1000ms"
               >
-                <form
-                  action="contact/contact-process.php"
-                  method="post"
-                  id="commentform"
-                  className="comment-form"
-                >
-                  <div className="row-form st-1 mg-bt-20">
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      placeholder="Full Name.........."
-                    />
-                  </div>
-                  <div className="row-form st-1 mg-bt-20">
-                    <input
-                      type="text"
-                      placeholder="Progam.........."
-                      id="progam"
-                      name="progam"
-                    />
-                    <svg
-                      className="icon"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      width={21}
-                      height={17}
-                      viewBox="0 0 21 17"
-                    >
-                      <g data-name={2}>
-                        <image
-                          width={21}
-                          height={17}
-                          xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAARCAYAAAAyhueAAAABa0lEQVQ4jaXUTUtVURTG8d+9xI2cSGMnzvwC0bgmDmwUODAJbJLOblJaRNMigoIgJ7twEKSlzqpP0EAQ/AIS5UAcNImoIOhFZdW+trl4jm/P5OznrLP/a+299j6N7fFxx1JK/2dPTDTiceJ4xF3YKdxDG9NR6UlcxBL+HAHZg7c4j20MNNGHl3iF1iGBrQIYei6l9wHdwCcM403OfFDNFsCPefkC+gudbg1i8YAV38TlPA7GqJS+daCh139L/6cLeIpGDXAI9wt/XUorHdMsAu28DaEx3KoA9uNFMXdBSjPlByX0K24XPo7IuS5gK5+S09l/wNXurM0uH1uwWsSiot4ifhdn8vg3Rjr7WAfdwrXCx3F7jLO4hKkidqcooBYaWsZc4a8gmjBfNO8dHu4FrILKTfpREfueE20dFrqJRxWxG1ivAtZBQwH93PUulv2sDrgf9AseFP5nvnnx0zgyNPQkNy6u4STW9gPCDvM8S/1q2ASSAAAAAElFTkSuQmCC"
-                        />
-                      </g>
-                    </svg>
-                  </div>
-                  <div className="row-form st-1">
-                    <input
-                      type="text"
-                      placeholder="Time/Shift.........."
-                      id="time-ship"
-                      name="time-ship"
-                    />
-                    <svg
-                      className="icon"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      width={21}
-                      height={17}
-                      viewBox="0 0 21 17"
-                    >
-                      <g data-name={2}>
-                        <image
-                          width={21}
-                          height={17}
-                          xlinkHref="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAARCAYAAAAyhueAAAABa0lEQVQ4jaXUTUtVURTG8d+9xI2cSGMnzvwC0bgmDmwUODAJbJLOblJaRNMigoIgJ7twEKSlzqpP0EAQ/AIS5UAcNImoIOhFZdW+trl4jm/P5OznrLP/a+299j6N7fFxx1JK/2dPTDTiceJ4xF3YKdxDG9NR6UlcxBL+HAHZg7c4j20MNNGHl3iF1iGBrQIYei6l9wHdwCcM403OfFDNFsCPefkC+gudbg1i8YAV38TlPA7GqJS+daCh139L/6cLeIpGDXAI9wt/XUorHdMsAu28DaEx3KoA9uNFMXdBSjPlByX0K24XPo7IuS5gK5+S09l/wNXurM0uH1uwWsSiot4ifhdn8vg3Rjr7WAfdwrXCx3F7jLO4hKkidqcooBYaWsZc4a8gmjBfNO8dHu4FrILKTfpREfueE20dFrqJRxWxG1ivAtZBQwH93PUulv2sDrgf9AseFP5nvnnx0zgyNPQkNy6u4STW9gPCDvM8S/1q2ASSAAAAAElFTkSuQmCC"
-                        />
-                      </g>
-                    </svg>
-                  </div>
-                  <div className="row-form">
-                    <button className="fl-btn st-14">
-                      <span className="inner">Enroll Courses</span>
-                    </button>
-                  </div>
-                </form>
+                <RegistrationForm />
               </div>
             </div>
           </div>
