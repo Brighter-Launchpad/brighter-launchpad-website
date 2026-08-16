@@ -1,10 +1,11 @@
 import SwiperCore, {
   Autoplay,
   EffectFade,
+  Keyboard,
   Navigation,
   Pagination,
 } from "swiper";
-SwiperCore.use([Pagination, Navigation, EffectFade, Autoplay]);
+SwiperCore.use([Pagination, Navigation, EffectFade, Autoplay, Keyboard]);
 
 export const heroSlider = {
   loop: true,

@@ -287,11 +287,11 @@
   mask-repeat: no-repeat;
 }
 
-/* Franchise page: "Advantages of Franchising" tile grid. The template's
-   photo-based .sc-faq tiles only ship with three icon images, but this
-   section needs six, so it uses a plain icon+title+description card
-   instead. Scoped to the page's "franchise" bodyClass. */
-.franchise .sc-advantage {
+/* Icon+title+description card grid. Originally built for the franchise
+   page's "Advantages of Franchising" tiles (the template's photo-based
+   .sc-faq tiles only ship with three icon images), now shared by any page
+   that needs a plain icon-card grid (see also about.js). */
+.sc-advantage {
   background: var(--primary-color1);
   box-shadow: 0px 10px 60px 0px rgba(218, 218, 218, 0.4);
   border-radius: 10px;
@@ -299,7 +299,7 @@
   height: 100%;
 }
 
-.franchise .sc-advantage .icon {
+.sc-advantage .icon {
   width: 64px;
   height: 64px;
   border-radius: 50%;
@@ -311,34 +311,34 @@
   color: var(--primary-color1);
 }
 
-.franchise .sc-advantage h4 {
+.sc-advantage h4 {
   color: var(--primary-color2);
   margin-bottom: 10px;
 }
 
-.franchise .sc-advantage p {
+.sc-advantage p {
   color: var(--primary-color4);
   font-family: "Mulish", sans-serif;
   margin: 0;
 }
 
-/* Franchise page: reusable checklist for the "What's Included" and "Who
-   We're Looking For" sections. Same colored, mask-icon checkmark treatment
-   the template already uses inside .sc-about-2 (bg_list.png), generalized
-   here so it isn't tied to that one hero layout. */
-.franchise .tf-check-list {
+/* Reusable checklist (franchise page "What's Included"/"Who We're Looking
+   For", about page franchise block). Same colored, mask-icon checkmark
+   treatment the template already uses inside .sc-about-2 (bg_list.png),
+   generalized here so it isn't tied to that one hero layout. */
+.tf-check-list {
   list-style: none;
   margin: 0 0 26px;
   padding: 0;
 }
 
-.franchise .tf-check-list li {
+.tf-check-list li {
   display: flex;
   align-items: flex-start;
   margin-bottom: 16px;
 }
 
-.franchise .tf-check-list li i {
+.tf-check-list li i {
   flex: none;
   width: 25px;
   height: 25px;
@@ -358,31 +358,31 @@
   background: var(--primary-color6);
 }
 
-.franchise .tf-check-list li:nth-child(4n + 2) i {
+.tf-check-list li:nth-child(4n + 2) i {
   background: var(--primary-color3);
 }
 
-.franchise .tf-check-list li:nth-child(4n + 3) i {
+.tf-check-list li:nth-child(4n + 3) i {
   background: var(--primary-color5);
 }
 
-.franchise .tf-check-list li:nth-child(4n + 4) i {
+.tf-check-list li:nth-child(4n + 4) i {
   background: var(--primary-color9);
 }
 
-.franchise .tf-check-list p {
+.tf-check-list p {
   color: var(--primary-color4);
   font-family: "Mulish", sans-serif;
   margin: 0;
 }
 
-/* Franchise page: numbered step timeline for "How It Works". */
-.franchise .sc-step {
+/* Numbered step timeline (franchise page "How It Works"). */
+.sc-step {
   text-align: center;
   padding: 0 10px;
 }
 
-.franchise .sc-step .step-number {
+.sc-step .step-number {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -396,26 +396,26 @@
   margin: 0 auto 20px;
 }
 
-.franchise .sc-step h4 {
+.sc-step h4 {
   color: var(--primary-color2);
   margin-bottom: 10px;
 }
 
-.franchise .sc-step p {
+.sc-step p {
   color: var(--primary-color4);
   font-family: "Mulish", sans-serif;
   margin: 0;
 }
 
-/* Franchise page: closing CTA band. */
-.franchise .tf-cta-band {
+/* Rounded, tinted closing CTA band (franchise page, about page). */
+.tf-cta-band {
   background: var(--primary-color7);
   border-radius: 20px;
   padding: 60px 40px;
   text-align: center;
 }
 
-.franchise .tf-cta-band .cta-buttons {
+.tf-cta-band .cta-buttons {
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -699,6 +699,12 @@
 .footer-legal-links.list-link li a {
   font-size: 14px;
   opacity: 0.85;
+  /* .wd-ctm's chevron icon (style.css) is absolutely positioned at left:0
+     relative to the link — the template normally clears it via
+     ".widget-link .list-link a { padding-left: 20px }", but these links
+     live in ".widget-contact", not ".widget-link", so that rule never
+     applied and the icon sat directly on top of the link text. */
+  padding-left: 20px;
 }
 
 /* Shared focus state (a11y) */
@@ -785,7 +791,7 @@ input:focus-visible,
   gap: 40px;
   align-items: center;
 }
-.location-hero .eyebrow {
+.eyebrow {
   font-family: "Rubik", sans-serif;
   letter-spacing: 4px;
   font-weight: 600;
@@ -955,6 +961,11 @@ input:focus-visible,
   object-fit: cover;
   display: block;
   border-radius: 24px;
+}
+/* Taller crop for portrait photos (about page founder feature). */
+.location-row-media.tall img {
+  height: 480px;
+  object-position: center 20%;
 }
 .location-row-content {
   position: relative;
@@ -1193,6 +1204,8 @@ input:focus-visible,
 --------------------------------------------------------------- */
 @media (max-width: 1199.98px) {
   .location-hero { padding: 130px 0 60px; }
+  .about-hero { min-height: 560px; padding: 140px 0 80px; }
+  .about-hero-content h1 { font-size: 46px; }
 }
 
 @media (max-width: 991.98px) {
@@ -1211,6 +1224,16 @@ input:focus-visible,
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 140px;
   }
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .franchise-block .tf-check-list {
+    grid-template-columns: 1fr;
+  }
+  .dual-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -1228,6 +1251,7 @@ input:focus-visible,
     top: -18px;
   }
   .location-row-media img { height: 240px; }
+  .location-row-media.tall img { height: 280px; }
   .location-hero h1 { font-size: 32px; }
   .brand-values-grid {
     grid-template-columns: 1fr;
@@ -1241,6 +1265,25 @@ input:focus-visible,
   }
   .mobile-action-bar {
     display: block;
+  }
+  .about-hero {
+    min-height: auto;
+    padding: 120px 0 60px;
+  }
+  .about-hero-content {
+    margin-top: 130px;
+  }
+  .about-hero-content h1 {
+    font-size: 32px;
+  }
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+  .franchise-block {
+    padding: 70px 0;
+  }
+  .franchise-block h2 {
+    font-size: 28px;
   }
 }
 
@@ -1483,6 +1526,229 @@ input:focus-visible,
   margin-top: 8px;
 }
 
+/* Subtle alternate-band tint for section rhythm (about page and any page
+   that wants to break up long runs of white .tf-section bands). */
+.bg-tint {
+  background-color: var(--primary-color7);
+}
+
+/* Team grid card (about page): the template's .sc-employee pulls its
+   name/role block up over the photo with a fixed -100px margin, which
+   only clears the photo at wide columns (the homepage's 3-up slider).
+   At a plain 4-up grid the photo is too short for that offset, and the
+   name ends up hidden behind it (or, if you raise .box-content's
+   z-index instead, the color block crops across the middle of the
+   photo). Simpler, safe alternative: photo on top, name/role in a
+   plain block below — no overlap, no fixed offsets, no photo-height
+   dependency. */
+.team-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--primary-color1);
+  box-shadow: 0px 10px 60px 0px rgba(218, 218, 218, 0.4);
+  height: 100%;
+}
+
+.team-card .team-card-photo {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.team-card .team-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.team-card .team-card-body {
+  padding: 18px 20px 22px;
+}
+
+.team-card .team-card-body h4 {
+  font-family: "Salsa", cursive;
+  color: var(--primary-color2);
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.team-card .team-card-body p {
+  font-family: "Mulish", sans-serif;
+  color: var(--primary-color4);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* About page hero: full-bleed background photo + overlay, unlike
+   .location-hero's two-column layout (no equivalent photo band existed
+   yet, so this is a new pattern). */
+.about-hero {
+  position: relative;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  padding: 170px 0 110px;
+  background-image: url(/assets/images/common/gallery-home-kids-huddle.jpg);
+  background-size: cover;
+  background-position: center 25%;
+  overflow: hidden;
+}
+
+.about-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(43, 60, 107, 0.88) 0%,
+    rgba(43, 60, 107, 0.68) 42%,
+    rgba(43, 60, 107, 0.32) 100%
+  );
+}
+
+.about-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero-content {
+  max-width: 620px;
+  /* .bg-inner1's decorative white blob (added for consistency with other
+     inner-page banners) sits top-left, ~325px tall — clear it so the
+     eyebrow/headline don't render underneath it. */
+  margin-top: 170px;
+}
+
+.about-hero-content .eyebrow {
+  color: var(--primary-color9);
+}
+
+.about-hero-content h1 {
+  font-family: "Salsa", cursive;
+  color: var(--primary-color1);
+  font-size: 56px;
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+
+.about-hero-content .hero-sub {
+  font-family: "Mulish", sans-serif;
+  color: var(--primary-color1);
+  opacity: 0.92;
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.about-hero-content .hero-ctas {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.about-hero-content .scroll-cue {
+  color: var(--primary-color1);
+}
+
+/* Founder pull-quote (TeamSection.js). */
+.pull-quote {
+  border-left: 4px solid var(--primary-color5);
+  margin: 28px 0 0;
+  padding: 4px 0 4px 22px;
+  font-family: "Salsa", cursive;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--primary-color2);
+}
+
+/* "Why Brighter Launchpad" 5-up icon-card grid: no standard bootstrap
+   fraction covers five equal columns, so this wraps .sc-advantage cards in
+   a plain CSS grid instead of .row/.col-*. */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+/* Testimonial star rating (AboutTestimonials.js). */
+.testimonial-stars {
+  color: var(--primary-color9);
+  font-size: 14px;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+}
+
+/* Franchise block (about page section 9): full-bleed, color-blocked navy
+   band so it reads as visually distinct from the surrounding white/tinted
+   .tf-section bands, per the page's design brief. */
+.franchise-block {
+  background: var(--primary-color2);
+  padding: 110px 0;
+}
+
+.franchise-block .inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.franchise-block .eyebrow {
+  color: var(--primary-color9);
+}
+
+.franchise-block h2 {
+  font-family: "Salsa", cursive;
+  color: var(--primary-color1);
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+
+.franchise-block p.body {
+  font-family: "Mulish", sans-serif;
+  color: var(--primary-color1);
+  opacity: 0.88;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.franchise-block .tf-check-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px 30px;
+  text-align: left;
+  margin: 0 0 40px;
+}
+
+.franchise-block .tf-check-list p {
+  color: var(--primary-color1);
+  opacity: 0.92;
+}
+
+/* Closing dual-CTA (about page section 10): reuses the existing
+   .tf-cta-band tinted shell, adding a two-path grid inside it. */
+.dual-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.dual-cta-grid h3 {
+  font-family: "Salsa", cursive;
+  color: var(--primary-color2);
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.dual-cta-grid p {
+  font-family: "Mulish", sans-serif;
+  color: var(--primary-color4);
+  margin-bottom: 22px;
+}
+
 /* Reduced motion
 --------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
@@ -1500,6 +1766,10 @@ input:focus-visible,
   }
   .fl-btn .inner::before,
   .fl-btn .inner::after {
+    transition: none !important;
+  }
+  .wow {
+    animation: none !important;
     transition: none !important;
   }
 }
