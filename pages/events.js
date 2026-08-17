@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import PageBanner from "../src/components/PageBanner";
@@ -16,6 +17,10 @@ const Events = () => {
   }, [active]);
   return (
     <Layout bodyClass={"pricing"}>
+      <Head>
+        <title>Events | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner pageName={"Events"} />
       <section className="tf-section tf-event">
         <div className="container">

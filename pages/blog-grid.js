@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import PageBanner2 from "../src/components/PageBanner2";
@@ -16,6 +17,10 @@ const Blog = () => {
   }, [active]);
   return (
     <Layout bodyClass={["shop", "style"]}>
+      <Head>
+        <title>Blog Grid | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner2 pageName={"Blog Grid"} pageTitle={"Blog Grid View"} />
       <section className="tf-section tf-blog-grid">
         <div className="container">

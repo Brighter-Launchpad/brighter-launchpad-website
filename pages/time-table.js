@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Nav, Tab } from "react-bootstrap";
 import PageBanner from "../src/components/PageBanner";
 import { LeftArrow, RightArrow } from "../src/Icons";
@@ -6,6 +7,10 @@ import Layout from "../src/layouts/Layout";
 const TimeTable = () => {
   return (
     <Layout bodyClass={"about"}>
+      <Head>
+        <title>Time Table | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner pageName={"Time Table"} />
       <section className="tf-section tf-time-table">
         <div className="container-fluid">

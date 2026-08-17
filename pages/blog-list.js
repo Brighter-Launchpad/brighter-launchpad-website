@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import PageBanner2 from "../src/components/PageBanner2";
@@ -16,6 +17,10 @@ const Blog = () => {
   }, [active]);
   return (
     <Layout bodyClass={["shop", "style", "bloglist"]}>
+      <Head>
+        <title>Blog List | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner2 pageName={"Blog List"} pageTitle={"Blog List View"} />
       <section className="tf-section tf-blog-list">
         <div className="container">

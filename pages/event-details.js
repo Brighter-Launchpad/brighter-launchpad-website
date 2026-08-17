@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import PageBanner from "../src/components/PageBanner";
 import Layout from "../src/layouts/Layout";
@@ -5,6 +6,10 @@ import Layout from "../src/layouts/Layout";
 const EventsDetails = () => {
   return (
     <Layout bodyClass={"event-details"}>
+      <Head>
+        <title>Event Details | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner pageName={"Events Details"} />
       <section className="tf-section tf-event-detail">
         <div className="container">

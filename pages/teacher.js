@@ -1,5 +1,6 @@
 // import DonutChart from "../src/components/DonutChart";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import Link from "next/link";
 import PageBanner from "../src/components/PageBanner";
 import TfCounter from "../src/components/TfCounter";
@@ -12,6 +13,10 @@ const DonutChart = dynamic(() => import("../src/components/DonutChart"), {
 const Teacher = () => {
   return (
     <Layout bodyClass={"teacher"}>
+      <Head>
+        <title>Our Teachers | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner pageName={"Our Teacher"} />
 
       <section className="tf-section tf-about">

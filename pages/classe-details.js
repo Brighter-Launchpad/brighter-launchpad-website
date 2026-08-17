@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import LatestProgramSlider from "../src/components/LatestProgramSlider";
 import PageBanner from "../src/components/PageBanner";
@@ -7,6 +8,10 @@ import Layout from "../src/layouts/Layout";
 const ClassesDetails = () => {
   return (
     <Layout bodyClass={"classes-details"}>
+      <Head>
+        <title>Class Details | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner pageName={"Classes Details"} />
       <section className="tf-section tf-classe-detail">
         <div className="container">
