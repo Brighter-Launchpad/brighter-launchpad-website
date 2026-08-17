@@ -131,6 +131,36 @@
   color: var(--primary-color1);
 }
 
+/* Inner-page hero banner (PageBanner.js): the white "speech bubble" behind
+   the logo is a decorative background image (bg-inner1 / img1innerpage.png,
+   see shortcodes.css), not a container the logo actually sits inside — the
+   logo is a separately-positioned element that happens to overlap it. Scale
+   the bubble up 10% at every breakpoint the template itself defines a size
+   for (shortcodes.css for desktop, responsive.css for the rest), so there's
+   more breathing room around the logo without losing the template's
+   responsive scaling on smaller viewports. */
+.inner-page .bg-inner1 {
+  max-width: 25.3%; /* 23% * 1.1 */
+}
+
+@media only screen and (max-width: 991px) {
+  .inner-page .bg-inner1 {
+    max-width: 38.5%; /* 35% * 1.1 */
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .inner-page .bg-inner1 {
+    max-width: 48.4%; /* 44% * 1.1 */
+  }
+}
+
+@media only screen and (max-width: 499px) {
+  .inner-page .bg-inner1 {
+    max-width: 60.5%; /* 55% * 1.1 */
+  }
+}
+
 /* Inner pages' mobile header (MobileMenu.js, shown below the "xl"
    breakpoint): cap the logo height so the full wordmark fits in the
    mobile header bar instead of overflowing it. Background stays
