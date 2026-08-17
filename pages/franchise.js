@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Accordion } from "react-bootstrap";
+import FranchiseInquiryModal from "../src/components/FranchiseInquiryModal";
 import PageBanner from "../src/components/PageBanner";
 import Seo from "../src/components/seo/Seo";
 import TestimonialSlider from "../src/components/TestimonialSlider";
@@ -220,11 +221,9 @@ const Franchise = () => {
                       <p className="clr-pri-2">A Team Beside You Every Step</p>
                     </li>
                   </ul>
-                  <Link href="/contact">
-                    <a className="fl-btn st-11">
-                      <span className="inner">Request Franchise Info</span>
-                    </a>
-                  </Link>
+                  <FranchiseInquiryModal className="fl-btn st-1">
+                    <span className="inner">Request Franchise Info</span>
+                  </FranchiseInquiryModal>
                 </div>
               </div>
             </div>
@@ -592,11 +591,9 @@ const Franchise = () => {
                   </p>
                 </div>
                 <div className="cta-buttons">
-                  <Link href="/contact">
-                    <a className="fl-btn st-1">
-                      <span className="inner">Request Franchise Info</span>
-                    </a>
-                  </Link>
+                  <FranchiseInquiryModal className="fl-btn st-1">
+                    <span className="inner">Request Franchise Info</span>
+                  </FranchiseInquiryModal>
                   <Link href="/contact">
                     <a className="fl-btn st-11">
                       <span className="inner">Book A Call</span>
