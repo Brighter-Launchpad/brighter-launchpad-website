@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Script from "next/script";
 import { Fragment, useEffect, useState } from "react";
 import PreLoader from "../src/layouts/PreLoader";
 import "../styles/globals.css";
@@ -24,6 +25,18 @@ const App = ({ Component, pageProps }) => {
           rel="stylesheet"
         />
       </Head>
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-21KQN0BKC2"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-21KQN0BKC2');
+        `}
+      </Script>
       {loader && <PreLoader />}
       <Component {...pageProps} />
     </Fragment>
