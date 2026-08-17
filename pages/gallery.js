@@ -1,7 +1,19 @@
 import PageBanner from "../src/components/PageBanner";
 import PhotoGallerySlider from "../src/components/PhotoGallerySlider";
+import Seo from "../src/components/seo/Seo";
 import { LeftArrow, RightArrow } from "../src/Icons";
+import { buildBreadcrumbSchema } from "../src/lib/seo";
 import Layout from "../src/layouts/Layout";
+
+const PAGE_PATH = "/gallery/";
+const PAGE_TITLE = "Photo Gallery | Brighter Launchpad";
+const PAGE_DESCRIPTION =
+  "See everyday life at Brighter Launchpad centres — classrooms, outdoor play, and the moments that make up our children's days.";
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Gallery", path: PAGE_PATH },
+]);
 
 const GALLERY_GRID_ITEMS = [
   {
@@ -65,6 +77,12 @@ const GALLERY_GRID_ITEMS = [
 const Gallery = () => {
   return (
     <Layout bodyClass={"gallery"}>
+      <Seo
+        title={PAGE_TITLE}
+        description={PAGE_DESCRIPTION}
+        path={PAGE_PATH}
+        jsonLd={breadcrumbSchema}
+      />
       <PageBanner pageName={"Gallery"} />
 
       <section className="tf-section tf-galley">

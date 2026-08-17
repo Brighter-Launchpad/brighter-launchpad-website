@@ -1,12 +1,30 @@
 import Link from "next/link";
 import PageBanner from "../src/components/PageBanner";
+import Seo from "../src/components/seo/Seo";
 import Layout from "../src/layouts/Layout";
 import { LeftArrow, RightArrow } from "../src/Icons";
+import { buildBreadcrumbSchema } from "../src/lib/seo";
 import { programs, programsIntro } from "../src/data/programs";
+
+const PAGE_PATH = "/program/";
+const PAGE_TITLE = "Childcare Programs | Brighter Launchpad";
+const PAGE_DESCRIPTION =
+  "Explore Brighter Launchpad's four childcare programs — infant, toddler/preschool, after-school, and summer camp — each built around a specific stage of childhood.";
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Programs", path: PAGE_PATH },
+]);
 
 const Programs = () => {
   return (
     <Layout bodyClass={"programs-page"}>
+      <Seo
+        title={PAGE_TITLE}
+        description={PAGE_DESCRIPTION}
+        path={PAGE_PATH}
+        jsonLd={breadcrumbSchema}
+      />
       <PageBanner pageName={"Programs"} pageTitle={"Programs"} />
       <section className="tf-section tf-program">
         <div className="container">

@@ -1,14 +1,32 @@
 import Link from "next/link";
 import ContactMessageForm from "../src/components/ContactMessageForm";
 import PageBanner from "../src/components/PageBanner";
+import Seo from "../src/components/seo/Seo";
 import SocialLinks from "../src/components/SocialLinks";
 import { LeftArrow, RightArrow } from "../src/Icons";
+import { buildBreadcrumbSchema } from "../src/lib/seo";
 import Layout from "../src/layouts/Layout";
 import { locations, sharedContact } from "../src/data/locations";
+
+const PAGE_PATH = "/contact/";
+const PAGE_TITLE = "Contact Us | Brighter Launchpad";
+const PAGE_DESCRIPTION =
+  "Get in touch with Brighter Launchpad — reach a childcare centre in Minto, Chipman, New Maryland, or Fredericton, NB, or send us a message.";
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Contact", path: PAGE_PATH },
+]);
 
 const Contact = () => {
   return (
     <Layout bodyClass={"contact"}>
+      <Seo
+        title={PAGE_TITLE}
+        description={PAGE_DESCRIPTION}
+        path={PAGE_PATH}
+        jsonLd={breadcrumbSchema}
+      />
       <PageBanner pageName={"Contact"} pageTitle={"Contact Us"} />
 
       <section className="tf-section tf-faq">

@@ -1,9 +1,21 @@
 import Link from "next/link";
 import { Accordion } from "react-bootstrap";
 import PageBanner from "../src/components/PageBanner";
+import Seo from "../src/components/seo/Seo";
 import TestimonialSlider from "../src/components/TestimonialSlider";
 import { LeftArrow, RightArrow } from "../src/Icons";
+import { buildBreadcrumbSchema } from "../src/lib/seo";
 import Layout from "../src/layouts/Layout";
+
+const PAGE_PATH = "/franchise/";
+const PAGE_TITLE = "Childcare Franchise Opportunities | Brighter Launchpad";
+const PAGE_DESCRIPTION =
+  "Own a Brighter Launchpad childcare franchise. A proven, play-based model with recession-resilient demand, government tailwinds, and hands-on support.";
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Franchise", path: PAGE_PATH },
+]);
 
 const whyInvest = [
   {
@@ -146,6 +158,12 @@ const faqs = [
 const Franchise = () => {
   return (
     <Layout bodyClass={"franchise"}>
+      <Seo
+        title={PAGE_TITLE}
+        description={PAGE_DESCRIPTION}
+        path={PAGE_PATH}
+        jsonLd={breadcrumbSchema}
+      />
       <PageBanner
         pageName={"Franchise"}
         pageTitle={"Own A Brighter Launchpad In Your Community"}

@@ -7,6 +7,7 @@ import FranchiseInquiryModal from "../src/components/FranchiseInquiryModal";
 import LatestProgramSlider from "../src/components/LatestProgramSlider";
 import PhotoGallerySlider from "../src/components/PhotoGallerySlider";
 import RegistrationForm from "../src/components/RegistrationForm";
+import Seo from "../src/components/seo/Seo";
 import TestimonialSlider from "../src/components/TestimonialSlider";
 import TfCounter from "../src/components/TfCounter";
 import { blogPosts } from "../src/data/blog";
@@ -20,8 +21,21 @@ import {
 import Footer2 from "../src/layouts/Footer2";
 import Header1 from "../src/layouts/header/Header1";
 import Layout from "../src/layouts/Layout";
+import { absoluteUrl, organizationSchema, SITE_NAME } from "../src/lib/seo";
 import { fourSlider, heroSlider } from "../src/SliderProps";
 import { activeNavMenu } from "../src/utils";
+
+const PAGE_PATH = "/";
+const PAGE_TITLE = "Licensed Daycare & Preschool Franchise | Brighter Launchpad";
+const PAGE_DESCRIPTION =
+  "Licensed childcare centres in Minto, Chipman, New Maryland & Fredericton, NB — plus franchise opportunities for entrepreneurs ready to invest.";
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE_NAME,
+  url: absoluteUrl(PAGE_PATH),
+};
 
 const Index = () => {
   useEffect(() => {
@@ -30,7 +44,16 @@ const Index = () => {
 
   return (
     <Layout noFooter noHeader bodyClass={"main"}>
+      <Seo
+        title={PAGE_TITLE}
+        description={PAGE_DESCRIPTION}
+        path={PAGE_PATH}
+        jsonLd={[organizationSchema, websiteSchema]}
+      />
       <Header1 />
+      <h1 className="sr-only">
+        Licensed Daycare, Preschool &amp; Franchise Opportunities | Brighter Launchpad
+      </h1>
       <section className="tf-slider-1">
         <div className="overlay" />
         <div className="container-fluid">
