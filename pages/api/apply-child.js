@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { locations } from "../../src/data/locations";
+import { pushLeadToHubSpot, splitName } from "../../src/lib/hubspot";
 
 const TO_EMAIL = "brighterlaunchpadfranchise@gmail.com";
 
@@ -49,37 +50,48 @@ export default async function handler(req, res) {
 
   const resend = new Resend(process.env.RESEND_API_KEY);
 
+  const detailLines = [
+    `New child application submitted from the website:`,
+    ``,
+    `Parent/Guardian Name: ${parentName}`,
+    `Email: ${parentEmail}`,
+    `Phone Number: ${parentPhone}`,
+    ``,
+    `Child's Name: ${childName}`,
+    `Child's Date of Birth: ${childDob}`,
+    `Preferred Location: ${locationLabel}`,
+    `Preferred Start Date: ${preferredStartDate}`,
+    `Schedule Needed: ${schedule}`,
+    daysList.length ? `Days Needed: ${daysList.join(", ")}` : null,
+    notes ? `` : null,
+    notes ? `Anything we should know:` : null,
+    notes ? notes : null,
+  ]
+    .filter((line) => line !== null)
+    .join("\n");
+
   try {
     const { error } = await resend.emails.send({
       from: "Brighter Launchpad Website <onboarding@resend.dev>",
       to: TO_EMAIL,
       replyTo: parentEmail,
       subject: `New Child Application — ${childName}`,
-      text: [
-        `New child application submitted from the website:`,
-        ``,
-        `Parent/Guardian Name: ${parentName}`,
-        `Email: ${parentEmail}`,
-        `Phone Number: ${parentPhone}`,
-        ``,
-        `Child's Name: ${childName}`,
-        `Child's Date of Birth: ${childDob}`,
-        `Preferred Location: ${locationLabel}`,
-        `Preferred Start Date: ${preferredStartDate}`,
-        `Schedule Needed: ${schedule}`,
-        daysList.length ? `Days Needed: ${daysList.join(", ")}` : null,
-        notes ? `` : null,
-        notes ? `Anything we should know:` : null,
-        notes ? notes : null,
-      ]
-        .filter((line) => line !== null)
-        .join("\n"),
+      text: detailLines,
     });
 
     if (error) {
       console.error("Resend error:", error);
       return res.status(502).json({ error: "Failed to send email." });
     }
+
+    const { firstName, lastName } = splitName(parentName);
+    await pushLeadToHubSpot({
+      email: parentEmail,
+      firstName,
+      lastName,
+      phone: parentPhone,
+      noteBody: `Child Application\n\n${detailLines}`,
+    });
 
     return res.status(200).json({ success: true });
   } catch (err) {

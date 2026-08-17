@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { pushLeadToHubSpot } from "../../src/lib/hubspot";
 
 const TO_EMAIL = "brighterlaunchpadfranchise@gmail.com";
 
@@ -45,37 +46,47 @@ export default async function handler(req, res) {
 
   const resend = new Resend(process.env.RESEND_API_KEY);
 
+  const detailLines = [
+    `New franchise inquiry submitted from the website:`,
+    ``,
+    `Name: ${firstName} ${lastName}`,
+    `Email: ${email}`,
+    `Mobile Phone: ${phone}`,
+    `City: ${city}`,
+    `Province: ${province}`,
+    ``,
+    `Where they'd like to open:`,
+    `Preferred Province: ${preferredProvince}`,
+    `Preferred City / Territory: ${preferredCity}`,
+    ``,
+    experienceList.length
+      ? `Relevant Experience: ${experienceList.join(", ")}`
+      : null,
+  ]
+    .filter((line) => line !== null)
+    .join("\n");
+
   try {
     const { error } = await resend.emails.send({
       from: "Brighter Launchpad Website <onboarding@resend.dev>",
       to: TO_EMAIL,
       replyTo: email,
       subject: `New Franchise Inquiry — ${firstName} ${lastName}`,
-      text: [
-        `New franchise inquiry submitted from the website:`,
-        ``,
-        `Name: ${firstName} ${lastName}`,
-        `Email: ${email}`,
-        `Mobile Phone: ${phone}`,
-        `City: ${city}`,
-        `Province: ${province}`,
-        ``,
-        `Where they'd like to open:`,
-        `Preferred Province: ${preferredProvince}`,
-        `Preferred City / Territory: ${preferredCity}`,
-        ``,
-        experienceList.length
-          ? `Relevant Experience: ${experienceList.join(", ")}`
-          : null,
-      ]
-        .filter((line) => line !== null)
-        .join("\n"),
+      text: detailLines,
     });
 
     if (error) {
       console.error("Resend error:", error);
       return res.status(502).json({ error: "Failed to send email." });
     }
+
+    await pushLeadToHubSpot({
+      email,
+      firstName,
+      lastName,
+      phone,
+      noteBody: `Franchise Inquiry\n\n${detailLines}`,
+    });
 
     return res.status(200).json({ success: true });
   } catch (err) {

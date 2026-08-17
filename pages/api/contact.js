@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { pushLeadToHubSpot, splitName } from "../../src/lib/hubspot";
 
 const TO_EMAIL = "brighterlaunchpadfranchise@gmail.com";
 
@@ -23,31 +24,42 @@ export default async function handler(req, res) {
 
   const resend = new Resend(process.env.RESEND_API_KEY);
 
+  const detailLines = [
+    `New message submitted from the contact page:`,
+    ``,
+    `Name: ${name}`,
+    `Email: ${email}`,
+    phone ? `Phone: ${phone}` : null,
+    `Subject: ${subject || "General Inquiry"}`,
+    ``,
+    `Message:`,
+    message,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
   try {
     const { error } = await resend.emails.send({
       from: "Brighter Launchpad Website <onboarding@resend.dev>",
       to: TO_EMAIL,
       replyTo: email,
       subject: `Contact Form: ${subject || "General Inquiry"} — ${name}`,
-      text: [
-        `New message submitted from the contact page:`,
-        ``,
-        `Name: ${name}`,
-        `Email: ${email}`,
-        phone ? `Phone: ${phone}` : null,
-        `Subject: ${subject || "General Inquiry"}`,
-        ``,
-        `Message:`,
-        message,
-      ]
-        .filter(Boolean)
-        .join("\n"),
+      text: detailLines,
     });
 
     if (error) {
       console.error("Resend error:", error);
       return res.status(502).json({ error: "Failed to send email." });
     }
+
+    const { firstName, lastName } = splitName(name);
+    await pushLeadToHubSpot({
+      email,
+      firstName,
+      lastName,
+      phone,
+      noteBody: `Contact Form\n\n${detailLines}`,
+    });
 
     return res.status(200).json({ success: true });
   } catch (err) {
