@@ -1,3 +1,4 @@
+import Head from "next/head";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -20,6 +21,10 @@ const Shop = () => {
   }, [active]);
   return (
     <Layout bodyClass={["shop", "style"]}>
+      <Head>
+        <title>Shop | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner2 pageName={"Shop"} />
       <section className="tf-section tf-shop">
         <div className="container">

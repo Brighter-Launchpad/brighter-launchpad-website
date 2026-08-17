@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import PageBanner2 from "../src/components/PageBanner2";
 import Layout from "../src/layouts/Layout";
@@ -5,6 +6,10 @@ import Layout from "../src/layouts/Layout";
 const BlogDetails = () => {
   return (
     <Layout bodyClass={["shop", "style"]}>
+      <Head>
+        <title>Blog Post | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner2 pageName={"Blog Details"} pageTitle={"Single Blog"} />
       <section className="tf-section tf-blog-details">
         <div className="container">

@@ -1,16 +1,26 @@
-import Head from "next/head";
+import Seo from "../src/components/seo/Seo";
+import { buildBreadcrumbSchema } from "../src/lib/seo";
 import Layout from "../src/layouts/Layout";
+
+const PAGE_PATH = "/careers/";
+const PAGE_TITLE = "Careers | Brighter Launchpad";
+const PAGE_DESCRIPTION =
+  "Interested in joining the Brighter Launchpad family? Get in touch to learn about opportunities at our centres.";
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Careers", path: PAGE_PATH },
+]);
 
 const Careers = () => {
   return (
     <Layout bodyClass="careers">
-      <Head>
-        <title>Careers | Brighter Launchpad</title>
-        <meta
-          name="description"
-          content="Interested in joining the Brighter Launchpad family? Get in touch to learn about opportunities at our centres."
-        />
-      </Head>
+      <Seo
+        title={PAGE_TITLE}
+        description={PAGE_DESCRIPTION}
+        path={PAGE_PATH}
+        jsonLd={breadcrumbSchema}
+      />
       <section className="tf-section">
         <div className="container">
           <div className="row">

@@ -1,9 +1,14 @@
+import Head from "next/head";
 import PageBanner from "../src/components/PageBanner";
 import Layout from "../src/layouts/Layout";
 
 const TeacherDetails = () => {
   return (
     <Layout bodyClass={"teacher"}>
+      <Head>
+        <title>Teacher Details | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner pageName={"Teacher Details"} />
       <section className="tf-section tf-teacher-details">
         <div className="container">

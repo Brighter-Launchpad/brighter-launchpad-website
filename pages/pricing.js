@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { Nav, Tab } from "react-bootstrap";
 import LatestProgramSlider from "../src/components/LatestProgramSlider";
@@ -8,6 +9,10 @@ import Layout from "../src/layouts/Layout";
 const Pricing = () => {
   return (
     <Layout bodyClass={"pricing"}>
+      <Head>
+        <title>Pricing | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner pageName={"Pricing Plan"} />
       <section className="tf-section tf-pricing">
         <div className="container">

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import FeedbackSlider from "../src/components/FeedbackSlider";
 import PageBanner from "../src/components/PageBanner";
 import { LeftArrow, RightArrow } from "../src/Icons";
@@ -6,6 +7,10 @@ import Layout from "../src/layouts/Layout";
 const Testimonials = () => {
   return (
     <Layout bodyClass={"about"}>
+      <Head>
+        <title>Testimonials | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner pageName={"Testimonials"} />
 
       <section className="tf-section tf-testimonial">

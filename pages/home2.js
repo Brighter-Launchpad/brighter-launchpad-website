@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -21,6 +22,10 @@ const Index2 = () => {
 
   return (
     <Layout noHeader bodyClass={"home2"}>
+      <Head>
+        <title>Home 2 | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <Header2 />
       <section className="tf-slider-2">
         <div className="overlay" />

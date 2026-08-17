@@ -1,3 +1,4 @@
+import Head from "next/head";
 import PageBanner from "../src/components/PageBanner";
 import { RightArrow, RightArrowPink, RightArrowWhite } from "../src/Icons";
 import Layout from "../src/layouts/Layout";
@@ -5,6 +6,10 @@ import Layout from "../src/layouts/Layout";
 const Calendar = () => {
   return (
     <Layout bodyClass={"calendar"}>
+      <Head>
+        <title>Academic Calendar | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner pageName={"Calendar"} />
       <section className="tf-section tf-calendar">
         <div className="container">

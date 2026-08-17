@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import PageBanner from "../src/components/PageBanner";
@@ -17,6 +18,10 @@ const Classes = () => {
   }, [active]);
   return (
     <Layout bodyClass={"classes"}>
+      <Head>
+        <title>Classes | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner pageName={"Classes"} />
 
       <section className="tf-section tf-courses">

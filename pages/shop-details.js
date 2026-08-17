@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { Nav, Tab } from "react-bootstrap";
 import PageBanner2 from "../src/components/PageBanner2";
@@ -6,6 +7,10 @@ import Layout from "../src/layouts/Layout";
 const ShopDetails = () => {
   return (
     <Layout bodyClass={["shop", "style", "details"]}>
+      <Head>
+        <title>Shop Details | Brighter Launchpad</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
       <PageBanner2 pageName={"Shop Details"} pageTitle={"Single Product"} />
       <section className="tf-section tf-shop-details">
         <div className="container">
