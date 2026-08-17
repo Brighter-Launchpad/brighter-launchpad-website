@@ -1,16 +1,15 @@
-import Head from "next/head";
+import Seo from "../src/components/seo/Seo";
 import Layout from "../src/layouts/Layout";
+
+const PAGE_PATH = "/privacy-policy/";
+const PAGE_TITLE = "Privacy Policy | Brighter Launchpad";
+const PAGE_DESCRIPTION =
+  "How Brighter Launchpad collects, uses, and protects your family's information, including our use of cookies.";
 
 const PrivacyPolicy = () => {
   return (
     <Layout bodyClass="privacy-policy">
-      <Head>
-        <title>Privacy Policy | Brighter Launchpad</title>
-        <meta
-          name="description"
-          content="How Brighter Launchpad collects, uses, and protects your family's information, including our use of cookies."
-        />
-      </Head>
+      <Seo title={PAGE_TITLE} description={PAGE_DESCRIPTION} path={PAGE_PATH} />
       <section className="tf-section">
         <div className="container">
           <div className="row">

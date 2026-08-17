@@ -1,16 +1,15 @@
-import Head from "next/head";
+import Seo from "../src/components/seo/Seo";
 import Layout from "../src/layouts/Layout";
+
+const PAGE_PATH = "/anti-bias-statement/";
+const PAGE_TITLE = "Anti-Bias Statement | Brighter Launchpad";
+const PAGE_DESCRIPTION =
+  "Brighter Launchpad's commitment to an inclusive, welcoming environment for every child and family.";
 
 const AntiBiasStatement = () => {
   return (
     <Layout bodyClass="anti-bias-statement">
-      <Head>
-        <title>Anti-Bias Statement | Brighter Launchpad</title>
-        <meta
-          name="description"
-          content="Brighter Launchpad's commitment to an inclusive, welcoming environment for every child and family."
-        />
-      </Head>
+      <Seo title={PAGE_TITLE} description={PAGE_DESCRIPTION} path={PAGE_PATH} />
       <section className="tf-section">
         <div className="container">
           <div className="row">

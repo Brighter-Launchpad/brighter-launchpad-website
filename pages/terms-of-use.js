@@ -1,16 +1,15 @@
-import Head from "next/head";
+import Seo from "../src/components/seo/Seo";
 import Layout from "../src/layouts/Layout";
+
+const PAGE_PATH = "/terms-of-use/";
+const PAGE_TITLE = "Terms of Use | Brighter Launchpad";
+const PAGE_DESCRIPTION =
+  "The terms that govern your use of the Brighter Launchpad website.";
 
 const TermsOfUse = () => {
   return (
     <Layout bodyClass="terms-of-use">
-      <Head>
-        <title>Terms of Use | Brighter Launchpad</title>
-        <meta
-          name="description"
-          content="The terms that govern your use of the Brighter Launchpad website."
-        />
-      </Head>
+      <Seo title={PAGE_TITLE} description={PAGE_DESCRIPTION} path={PAGE_PATH} />
       <section className="tf-section">
         <div className="container">
           <div className="row">
