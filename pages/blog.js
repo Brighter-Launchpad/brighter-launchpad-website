@@ -1,12 +1,30 @@
 import Link from "next/link";
 import PageBanner from "../src/components/PageBanner";
+import Seo from "../src/components/seo/Seo";
 import { LeftArrow, RightArrow } from "../src/Icons";
+import { buildBreadcrumbSchema } from "../src/lib/seo";
 import Layout from "../src/layouts/Layout";
 import { blogPosts } from "../src/data/blog";
+
+const PAGE_PATH = "/blog/";
+const PAGE_TITLE = "Blog | Brighter Launchpad";
+const PAGE_DESCRIPTION =
+  "News and advice from Brighter Launchpad on early childhood education, choosing a daycare, and play-based learning.";
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: "Home", path: "/" },
+  { name: "Blog", path: PAGE_PATH },
+]);
 
 const Blog = () => {
   return (
     <Layout bodyClass={["blog", "blog-listing-page"]}>
+      <Seo
+        title={PAGE_TITLE}
+        description={PAGE_DESCRIPTION}
+        path={PAGE_PATH}
+        jsonLd={breadcrumbSchema}
+      />
       <PageBanner pageName={"Blog"} pageTitle={"News & Advice From Our Team"} />
       <section className="tf-section tf-blog-grid">
         <div className="container">
